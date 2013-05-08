@@ -20,3 +20,5 @@ if __name__ == '__main__':
     with open('donnees', 'wb') as fichier:
         nom_pickler = pickle.Pickler(fichier)
         nom_pickler.dump(score)
+    
+    

@@ -1,0 +1,25 @@
+Sur Samsung S3:
+---------------
+
+08-29 12:29:55.125: D/PATH - Directory(9503): Data Directory : /data
+08-29 12:29:55.125: D/PATH - Directory(9503): Root Directory : /system
+08-29 12:29:55.125: D/PATH - Directory(9503): External Storage State : mounted
+08-29 12:29:55.125: D/PATH - Directory(9503): External Storage Directory : /storage/sdcard0
+08-29 12:29:55.125: D/PATH - Directory(9503): Download Cache Directory : /cache
+
+Sur Emulateur sans SDCard image:
+--------------------------------
+08-29 11:31:03.473: D/PATH - Directory(220): Data Directory : /data
+08-29 11:31:03.473: D/PATH - Directory(220): Root Directory : /system
+08-29 11:31:03.483: D/PATH - Directory(220): External Storage State : removed
+08-29 11:31:03.483: D/PATH - Directory(220): External Storage Directory : /sdcard
+08-29 11:31:03.483: D/PATH - Directory(220): Download Cache Directory : /cache
+
+
+Sur Emulateur avec SDCard image:
+--------------------------------
+08-29 10:33:34.666: D/PATH - Directory(225): Data Directory : /data
+08-29 10:33:34.666: D/PATH - Directory(225): Root Directory : /system
+08-29 10:33:34.688: D/PATH - Directory(225): External Storage State : mounted
+08-29 10:33:34.688: D/PATH - Directory(225): External Storage Directory : /sdcard
+08-29 10:33:34.696: D/PATH - Directory(225): Download Cache Directory : /cache

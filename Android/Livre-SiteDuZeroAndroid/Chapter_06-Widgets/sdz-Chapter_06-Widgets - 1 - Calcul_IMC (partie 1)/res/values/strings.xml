@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calcul_IMC</string>
+    <string name="action_settings">Settings</string>
+    <string name="poids_">Poids :</string><string name="poids">Poids</string>
+    <string name="taille_">Taille :</string><string name="taille">Taille</string>
+    
+    
+    <string name="metre">Mètre</string>
+    <string name="centimetre">Centimètre</string>
+    <string name="megaFonction">Mega fonction !</string>
+    <string name="calculerIMC">Calculer l\'IMC</string>
+    <string name="raz">RAZ</string>
+    <string name="resultat">Résultat:</string>
+
+</resources>

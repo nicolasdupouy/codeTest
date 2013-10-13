@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nicolas.notepad.Slider
+    android:id="@+id/slider"
+    style="@style/blueBackground"
+    
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    android:padding="5dip"
+    android:orientation="vertical" >
+    
+	<RelativeLayout 
+	    android:id="@+id/relativeLayoutToHide"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dip"
+	    android:paddingRight="10dip">
+	
+	    
+		<!--    #############
+				## ligne 1 ##
+				############# 
+		-->
+	  	<Button
+	  	    android:id="@+id/buttonBold"
+	    	android:text="@string/bold"
+	    	style="@style/optionButton"
+	    	
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentTop="true"
+	    	android:layout_alignParentLeft="true" />
+	
+	  	<Button
+	  	    android:id="@+id/buttonItalic"
+	    	android:text="@string/italic"
+	    	style="@style/optionButton"
+	    	
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentTop="true"
+	    	android:layout_centerHorizontal="true"
+	    	 />
+	  	
+	  	<Button
+	  	    android:id="@+id/buttonUnderline"
+	    	android:text="@string/underline"
+	    	style="@style/optionButton"
+	    	
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_alignParentTop="true"
+	    	android:layout_alignParentRight="true"
+	    	 />
+	  	
+	  	<!--    #############
+				## ligne 2 ##
+				############# 
+		-->
+		<TextView 
+		    android:id="@+id/smileyText"
+	    	android:text="@string/smileys"
+	    	style="@style/blackText"
+	    	
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:paddingTop="5dip"
+	    	android:layout_below="@id/buttonBold"
+	    	android:layout_alignParentLeft="true"
+		    />
+		
+		<ImageButton 
+		    android:id="@+id/smileySmile"
+		    android:src="@drawable/smiley_smile"
+		    android:contentDescription="@string/smileySmile"
+		    style="@style/translucide"
+		    
+		    android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:padding="5dip"
+	    	android:layout_below="@id/buttonBold"
+	    	android:layout_toRightOf="@id/smileyText" />
+		
+		<ImageButton 
+		    android:id="@+id/smileyHappy"
+		    android:src="@drawable/smiley_happy"
+		    android:contentDescription="@string/smileyHappy"
+		    style="@style/translucide"
+		    
+		    android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:padding="5dip"
+	    	android:layout_alignTop="@id/smileySmile"
+	    	android:layout_centerHorizontal="true" />
+		
+		<ImageButton 
+		    android:id="@+id/smileyClin"
+		    android:src="@drawable/smiley_clin"
+		    android:contentDescription="@string/smileyClin"
+		    style="@style/translucide"
+		    
+		    android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:padding="5dip"
+	    	android:layout_alignTop="@id/smileySmile"
+	    	android:layout_alignLeft="@id/buttonUnderline"
+	    	android:layout_alignRight="@id/buttonUnderline" />
+	
+		
+		<!--    #############
+				## ligne 3 ##
+				############# 
+		-->
+		<RadioGroup 
+		    android:id="@+id/colorsGroup"
+		    android:orientation="horizontal"
+		    android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@id/smileyHappy">
+	        
+		    <RadioButton 
+		        android:id="@+id/radioBlack"
+		        android:text="@string/black"
+		        android:checked="true"
+		        style="@style/blackText"
+		        android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	/>
+		    <RadioButton 
+		        android:id="@+id/radioBlue"
+		        android:text="@string/blue"
+		        style="@style/blackText"
+		        android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	 />
+		    <RadioButton 
+		        android:id="@+id/radioRed"
+		        android:text="@string/red"
+		        style="@style/blackText"
+		        android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	 />
+		</RadioGroup>
+	</RelativeLayout>
+	
+	<!--    #############
+			## ligne 4 ##
+			############# 
+	-->
+	<RelativeLayout 
+	    android:id="@+id/relativeLayoutToHide"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="30dip"
+	    android:paddingRight="30dip">
+		
+		<Button
+		 	android:id="@+id/buttonHideShow"
+		   	android:text="@string/hide"
+		   	style="@style/hideDisplayButton"
+		   	
+		   	android:layout_width="wrap_content"
+		   	android:layout_height="wrap_content"
+		   	 />
+		<Button
+		 	android:id="@+id/buttonClean"
+		   	android:text="@string/clean"
+		   	style="@style/optionButton"
+		   	
+		   	android:layout_width="wrap_content"
+		   	android:layout_height="wrap_content"
+		   	android:layout_alignParentRight="true"
+		   	 />
+	</RelativeLayout>
+
+	<!--    #############
+			## ligne 5 ##
+			############# 
+	-->
+	<ImageView
+	    android:src="@android:drawable/divider_horizontal_textfield"
+	    android:contentDescription="@string/divider"
+	    
+	    android:layout_width="fill_parent"
+	   	android:layout_height="wrap_content"
+	   	
+	   	android:scaleType="fitXY"
+	   	android:paddingLeft="5dp"
+	   	android:paddingRight="5dp"
+	   	android:paddingBottom="2dp"
+	   	android:paddingTop="2dp" />
+	
+	<!--    #############
+			## ligne 6 ##
+			############# 
+	-->
+	<TableLayout 
+	    android:layout_width="fill_parent"
+	   	android:layout_height="fill_parent"
+	   	android:shrinkColumns="1">"
+		
+		<!-- Row 1 -->
+		<TableRow
+		    android:layout_width="fill_parent"
+	   		android:layout_height="fill_parent">
+		    
+		    <TextView 
+		        android:text="@string/edition"
+		        style="@style/blackText"
+		        android:layout_width="fill_parent"
+	   			android:layout_height="fill_parent" />
+		    
+		    <EditText 
+		        android:id="@+id/edition"
+		        android:inputType="textMultiLine"
+		        android:lines="5"
+		        android:textSize="16sp"
+		        
+		        android:gravity="top"
+		        android:layout_width="fill_parent"
+	   			android:layout_height="wrap_content" /> <!--  "wrap_content" -->
+		    
+		</TableRow>
+		
+		<!-- Row 2 -->
+	    <TableRow
+		    android:layout_width="fill_parent"
+	   		android:layout_height="fill_parent">
+		    
+	        <TextView 
+		        android:text="@string/preview"
+		        style="@style/blackText"
+		        android:layout_width="fill_parent"
+	   			android:layout_height="fill_parent" />
+	        
+	        <TextView 
+		        android:id="@+id/textPreviewed"
+		        android:textSize="12sp"
+		        android:text=""
+		        style="@style/blackText"
+		        
+		        android:scrollbars="vertical"
+		        android:maxLines="100"
+		        android:paddingLeft="5dip"
+		        android:paddingTop="5dip"
+		        
+		        android:layout_width="fill_parent"
+	   			android:layout_height="fill_parent" />
+		</TableRow>
+		
+	    <!-- Row 3 -->
+		<TableRow
+		    android:layout_width="fill_parent"
+	   		android:layout_height="fill_parent">
+		    <TextView
+			    android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="" />
+
+			<TextView
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:text="                                                                      " />
+		    
+		</TableRow>
+	</TableLayout>
+	
+	<!--    #############
+			## ligne 5 ##
+			############# 
+	-->
+</com.nicolas.notepad.Slider>	

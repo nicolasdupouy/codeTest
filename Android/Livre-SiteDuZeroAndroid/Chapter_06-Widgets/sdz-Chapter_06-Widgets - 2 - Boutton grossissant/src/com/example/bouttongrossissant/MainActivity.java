@@ -13,11 +13,11 @@ public class MainActivity extends Activity implements View.OnTouchListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         bouton = (Button)findViewById(R.id.bouton);
         bouton.setOnTouchListener(this);
     }
-
+//
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		bouton.setTextSize(Math.abs(event.getX() - bouton.getWidth()/2)

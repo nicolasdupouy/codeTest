@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Sondage</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="question1">Quel est votre sexe ? :</string>
+    <string name="question2">Quel(s) langage(s) maîtrisez-vous ? :</string>
+    <string name="buttonSend">Envoyer</string>
+
+</resources>

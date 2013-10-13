@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Notepad</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="bold">Gras</string>
+    <string name="italic">Italique</string>
+    <string name="underline">Souligné</string>
+    
+    <string name="smileys">Smileys :</string>
+    <string name="smileySmile">smiling smiley</string>
+    <string name="smileyHappy">happy smiley</string>
+    <string name="smileyClin">clin d\'oeil smiley</string>
+    
+    <string name="black">Noir</string>
+    <string name="blue">Bleu</string>
+    <string name="red">Rouge</string>
+    
+    <string name="divider">Séparateur</string>
+    
+    <string name="edition">Edition :</string>
+    <string name="preview">Prévisualisation :</string>
+    
+    <string name="hide">Cacher</string>
+    <string name="show">Afficher</string>
+    <string name="clean">Nettoyer</string>
+    
+
+</resources>

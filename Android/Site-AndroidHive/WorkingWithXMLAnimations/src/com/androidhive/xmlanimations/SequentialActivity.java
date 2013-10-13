@@ -16,7 +16,7 @@ public class SequentialActivity extends Activity implements AnimationListener {
 
 	// Animation
 	Animation animSequential;
-
+//
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

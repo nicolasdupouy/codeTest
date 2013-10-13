@@ -1,0 +1,22 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+    <AnalogClock 
+        android:id="@+id/analog"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
+    	android:layout_alignParentTop="true"
+    />
+    <DigitalClock 
+        android:id="@+id/digital"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
+    	android:layout_below="@id/analog"
+    />
+
+</RelativeLayout>

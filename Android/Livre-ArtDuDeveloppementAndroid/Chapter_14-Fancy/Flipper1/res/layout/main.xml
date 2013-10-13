@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/flip_me"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:text="Bascule-moi !"
+    	android:onClick="flip"
+    />
+    <ViewFlipper 
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+        
+        <TextView 
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:textStyle="bold"
+    		android:textColor="#FF00FF00"
+    		android:text="Premier panneau"
+    	/>
+        <TextView 
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:textStyle="bold"
+    		android:textColor="#FFFF0000"
+    		android:text="Second panneau"
+    	/>
+        <TextView 
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:textStyle="bold"
+    		android:textColor="#FFFFFF00"
+    		android:text="Troisième panneau"
+    	/>
+    </ViewFlipper>
+
+</LinearLayout>

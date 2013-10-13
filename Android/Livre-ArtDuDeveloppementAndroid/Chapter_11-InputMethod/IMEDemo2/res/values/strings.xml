@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">IMEDemo2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity - IMEDemo2</string>
+
+</resources>

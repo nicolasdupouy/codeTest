@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+		
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:stretchColumns="1">
+		<TableRow>	
+			<TextView	
+				android:text="Aucune règle spéciale : "
+			/>
+			<EditText
+			/>
+		</TableRow>
+		<TableRow>	
+			<TextView	
+				android:text="Adresse e-mail : "
+			/>
+			<EditText	
+				android:inputType="text|textEmailAddress"
+				android:imeOptions="actionSend"
+			/>
+		</TableRow>
+		<TableRow>	
+			<TextView	
+				android:text="Nombre décimal signé : "
+			/>
+			<EditText	
+				android:inputType="number|numberSigned|numberDecimal"
+				android:imeOptions="actionDone"
+			/>
+		</TableRow>
+		<TableRow>	
+			<TextView	
+				android:text="Date : "
+			/>
+			<EditText	
+				android:inputType="date"
+			/>
+		</TableRow>
+		<TableRow>	
+			<TextView	
+				android:text="Texte multilignes : "
+			/>
+			<EditText	
+				android:inputType="text|textMultiLine|textAutoCorrect"
+				android:minLines="3"
+				android:gravity="top"
+			/>
+		</TableRow>
+	</TableLayout>
+</ScrollView>

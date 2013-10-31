@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -23,6 +24,7 @@ public class ProgressBarWithHandlerDemo extends Activity {
 	private int progressionInt = 0;
 
 	// Gère les communications avec le thread de téléchargement
+	@SuppressLint("HandlerLeak")
 	private final Handler handler = new Handler() {
 
 		@Override
@@ -41,6 +43,7 @@ public class ProgressBarWithHandlerDemo extends Activity {
 		button = (Button)findViewById(R.id.button);
 		button.setOnClickListener(new View.OnClickListener() {
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v) {
 				showDialog(PROGRESS_DIALOG_ID);
@@ -95,6 +98,7 @@ public class ProgressBarWithHandlerDemo extends Activity {
 			progressBar.setCancelable(true);
 			progressBar.setOnCancelListener(new DialogInterface.OnCancelListener() {
 
+				@SuppressWarnings("deprecation")
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					progressionThread.interrupt();

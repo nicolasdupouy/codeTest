@@ -8,4 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AsyncActivity" >
 
+    <Button
+        android:id="@+id/button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/launchDownloadButtonName" />
+    
 </RelativeLayout>

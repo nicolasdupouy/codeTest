@@ -3,5 +3,8 @@
 
     <string name="app_name">AsyncTaskDemo</string>
     <string name="action_settings">Settings</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="over">download done !</string>
+	<string name="launchDownloadButtonName">Launch download !</string>
 
 </resources>

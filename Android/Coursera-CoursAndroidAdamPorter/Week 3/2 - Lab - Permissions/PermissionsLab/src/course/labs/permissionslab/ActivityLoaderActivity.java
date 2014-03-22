@@ -21,7 +21,6 @@ public class ActivityLoaderActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
 				startBookMarksActivity();
 			
 			}
@@ -33,6 +32,7 @@ public class ActivityLoaderActivity extends Activity {
 		Log.i(TAG, "Entered startBookMarksActivity()");
 	
 		// TODO - Start the BookmarksActivity
-
+		Intent intentBookmarksActivity = new Intent(getBaseContext(), BookmarksActivity.class);
+		startActivity(intentBookmarksActivity);
 	}
 }

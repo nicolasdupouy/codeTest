@@ -30,7 +30,6 @@ public class BookmarksActivity extends Activity {
 			public void onClick(View v) {
 
 				loadBookmarks();
-
 			}
 		});
 
@@ -41,7 +40,6 @@ public class BookmarksActivity extends Activity {
 			public void onClick(View v) {
 
 				startGoToDangerousActivity();
-
 			}
 		});
 
@@ -79,8 +77,8 @@ public class BookmarksActivity extends Activity {
 		Log.i(TAG, "Entered startGoToDangerousActivity()");
 
 		// TODO - Start the GoToDangerousActivity
-		
-
+		Intent intentGoToDangerousActivity = new Intent(getBaseContext(), GoToDangerousActivity.class);
+		startActivity(intentGoToDangerousActivity);
 	}
 
 }

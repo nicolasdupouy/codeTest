@@ -14,6 +14,7 @@ public class ExplicitlyLoadedActivity extends Activity {
 	static private final String TAG = "Lab-Intents";
 
 	private EditText mEditText;
+	public static final String EXTRA_NAME = "RETURN_INTENT_EXTRA";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +42,18 @@ public class ExplicitlyLoadedActivity extends Activity {
 	}
 
 	// Sets result to send back to calling Activity and finishes
-	
 	private void enterClicked() {
 
 		Log.i(TAG,"Entered enterClicked()");
 		
 		// TODO - Save user provided input from the EditText field
-
+		String enteredText = mEditText.getText().toString();
 		// TODO - Create a new intent and save the input from the EditText field as an extra
-		
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra(EXTRA_NAME, enteredText);
 		// TODO - Set Activity's result with result code RESULT_OK
-		
+		setResult(RESULT_OK, returnIntent);
 		// TODO - Finish the Activity
-
+		finish();
 	}
 }

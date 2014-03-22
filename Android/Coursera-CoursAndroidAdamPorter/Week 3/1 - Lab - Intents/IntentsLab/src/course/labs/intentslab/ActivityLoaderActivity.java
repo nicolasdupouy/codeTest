@@ -2,7 +2,6 @@ package course.labs.intentslab;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +38,6 @@ public class ActivityLoaderActivity extends Activity {
 			public void onClick(View v) {
 				
 				startExplicitActivation();
-			
 			}
 		});
 
@@ -52,7 +50,6 @@ public class ActivityLoaderActivity extends Activity {
 			public void onClick(View v) {
 			
 				startImplicitActivation();
-			
 			}
 		});
 
@@ -66,10 +63,9 @@ public class ActivityLoaderActivity extends Activity {
 		Log.i(TAG,"Entered startExplicitActivation()");
 		
 		// TODO - Create a new intent to launch the ExplicitlyLoadedActivity class
-		
+		Intent intentExplicitlyLoadedActivity = new Intent(getBaseContext(), ExplicitlyLoadedActivity.class);
 		// TODO - Start an Activity using that intent and the request code defined above
-
-
+		startActivityForResult(intentExplicitlyLoadedActivity, GET_TEXT_REQUEST_CODE);
 	}
 
 	// Start a Browser Activity to view a web page or its URL
@@ -103,6 +99,11 @@ public class ActivityLoaderActivity extends Activity {
 		// TODO - Process the result only if this method received both a
 		// RESULT_OK result code and a recognized request code
 		// If so, update the Textview showing the user-entered text.
+		if (requestCode == GET_TEXT_REQUEST_CODE
+				&& resultCode == RESULT_OK) {
+			String enteredText = data.getStringExtra(ExplicitlyLoadedActivity.EXTRA_NAME);
+			mUserTextView.setText(enteredText);
+		}
 
 
 	}

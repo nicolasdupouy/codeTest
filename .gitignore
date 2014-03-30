@@ -1,7 +1,8 @@
 # Android temp directories
 bin/
 gen/
-libs/
+#libs/
+*.zip
 
 # Eclipse temp
 .settings/

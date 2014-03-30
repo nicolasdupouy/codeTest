@@ -308,7 +308,7 @@ public class CreateStoryFragment extends Fragment {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Log.d(LOG_TAG, "CreateFragment onActivtyResult called. requestCode: "
+		Log.d(LOG_TAG, "CreateFragment onActivityResult called. requestCode: "
 				+ requestCode + " resultCode:" + resultCode + "data:" + data);
 		if (requestCode == CreateStoryActivity.CAMERA_PIC_REQUEST) {
 			if (resultCode == CreateStoryActivity.RESULT_OK) {

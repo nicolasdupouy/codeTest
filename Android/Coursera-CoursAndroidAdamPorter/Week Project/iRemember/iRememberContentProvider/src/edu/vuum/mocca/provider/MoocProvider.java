@@ -139,14 +139,14 @@ public class MoocProvider extends ContentProvider {
     /*
      * Private query that does the actual query based on the table
      */
-
     synchronized private Cursor query(final Uri uri, final String tableName,
             final String[] projection, final String selection,
             final String[] selectionArgs, final String sortOrder) {
 
         // TODO: Perform a query on the database with the given parameters
-    	
-    	return null;
+    	Cursor cursor = mDB.query(tableName, projection, selection, selectionArgs, sortOrder);
+    	cursor.setNotificationUri(getContext().getContentResolver(), uri);
+    	return cursor;
     }
 
     @Override

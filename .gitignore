@@ -7,3 +7,7 @@ gen/
 # Eclipse temp
 .settings/
 .metadata/
+
+# MacOS temp
+.DS_Store
+

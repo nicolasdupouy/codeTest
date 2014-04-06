@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+p {
+	text-decoration: underline;
+}
+
+form p {
+	text-decoration: none;
+}

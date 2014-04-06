@@ -1,0 +1,30 @@
+
+/*p
+{
+	width: 50%;
+	border: 1px solid black;
+	text-align: justify;
+	/* Marge intérieure de 12px * /
+	padding: 12px;
+	/* Marge extérieure de 50px * /
+	margin: 50px;
+}*/
+
+/*p
+{
+	width: 50%;
+	margin: auto;
+	border: 1px solid black;
+	text-align: justify;
+	padding: 12px;
+	margin-bottom: 20px;
+}*/
+
+p
+{
+	width: 350px;
+	height: 110px;
+	text-align: justify;
+	border: 1px solid black;
+	overflow: auto;
+}

@@ -7,3 +7,8 @@ gen/
 # Eclipse temp
 .settings/
 .metadata/
+
+# XCode
+*_.1
+*.1
+*.xcodeproj

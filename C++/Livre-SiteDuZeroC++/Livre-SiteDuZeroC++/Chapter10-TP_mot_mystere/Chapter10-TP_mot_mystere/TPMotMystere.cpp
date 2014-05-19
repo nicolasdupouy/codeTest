@@ -41,8 +41,8 @@ int main(int argc, const char * argv[])
     string mysteryWord = askMysteryWord();
     string mixedWord = mixMysteryWord(mysteryWord);
     string userWord;
-    cout << "mot mystérieux: " << mysteryWord << endl;
-    cout << "mot mélangé: " << mixedWord << endl;
+    cout << "mot mysterieux: " << mysteryWord << endl;
+    cout << "mot melange: " << mixedWord << endl;
     
     do {
         cout << "Quel est-ce mot ?" << endl;

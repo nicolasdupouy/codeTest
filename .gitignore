@@ -8,6 +8,9 @@ gen/
 .settings/
 .metadata/
 
+# Apple temp
+.DS_Store
+
 # XCode
 *_.1
 *.1

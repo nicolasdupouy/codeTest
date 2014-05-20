@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<title>test de formulaire basique</title>
+	</head>
+	<body>
+	
+		<p>Formulaire basique + fonctionnalités avancées :</p>
+		<form method="post" action="traitement.php">
+			<p>Traitement à l'intérieur du formulaire</p>
+			<p>
+				<label for="pseudo">Votre pseudo :</label>
+				<input type="text" name="pseudo" id="pseudo"
+					   placeholder="Ex : Zozor" size="30" maxlength="10" />
+				<br/>
+				<label for="password">Votre mot de passe :</label>
+				<input type="password" name="password" id="password" />
+			</p>
+		</form>
+		
+		<p>Zone de texte multiligne :</p>
+		<form method="post" action="traitement.php">
+			<p>
+				<label for="ameliorer">Comment pensez-vous que je pourrais améliorer mon site ?</label><br/>
+				<textarea name="ameliorer" id="ameliorer">Entrez ici vos commentaires.</textarea>
+			</p>	
+			
+			<p>	
+				<label for="ameliorer2">Comment pensez-vous que je pourrais améliorer mon site ? (version élargie)</label><br/>
+				<textarea name="ameliorer2" id="ameliorer2" rows="10" cols="50">Entrez ici vos commentaires.</textarea>
+			</p>
+		</form>
+		
+	</body>
+</html>

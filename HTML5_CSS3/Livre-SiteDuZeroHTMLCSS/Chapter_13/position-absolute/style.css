@@ -1,0 +1,15 @@
+p {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	#z-index: 1;
+	width: 150px;
+	border: 1px solid blue;
+}
+
+element2 {
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	z-index: 2;
+}

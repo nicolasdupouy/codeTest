@@ -1,0 +1,17 @@
+body
+{
+	background: url("neige.jpeg");
+}
+
+/*p
+{
+	background-color: black;
+	color: white;
+	opacity: 0.3
+}*/
+
+p
+{
+	background-color: rgb(255, 0, 0);
+	background-color: rgba(255, 0, 0, 0.5);
+}

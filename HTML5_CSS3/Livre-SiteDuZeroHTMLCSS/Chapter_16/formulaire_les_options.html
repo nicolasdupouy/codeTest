@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<title>test de formulaire basique</title>
+	</head>
+	<body>
+	
+		<p>Les cases à cocher :</p>
+		<form method="post" action="traitement.php">
+			<p>
+				Cochez les aliments que vous aimez manger :<br/>
+				<input type="checkbox" name="frites" id="frites" /><label for="frites">Frites</label><br/>
+				<input type="checkbox" name="steack" id="steack" /><label for="steack">Steack</label><br/>
+				<input type="checkbox" name="epinards" id="epinards" /><label for="epinards">Epinards</label><br/>
+				<input type="checkbox" name="huitres" id="huitres" /><label for="huitres">Huitres</label><br/>
+				
+			</p>
+		</form>
+		
+		
+		<p>Les zones d'options :</p>
+		<form method="post" action="traitement.php">
+			<p>
+				Veuillez indiquer la tranche d'age dans laquelle vous vous situez :<br/>
+				<input type="radio" name="age" value="moins15" id="moins15" /><label for="moins15">Moins de 15 ans</label><br/>
+				<input type="radio" name="age" value="medium15-25" id="medium15-25" /><label for="medium15-25">15-25 ans</label><br/>
+				<input type="radio" name="age" value="medium25-40" id="medium25-40" /><label for="medium25-40">25-40 ans</label><br/>
+				<input type="radio" name="age" value="plus40" id="plus40" /><label for="plus40">Plus de 40 ans</label><br/>
+			</p>
+		</form>
+		
+
+		<form method="post" action="traitement.php">
+			<p>
+				Sur quel continent habitez-vous ?<br/>
+				<input type="radio" name="continent" value="europe" id="europe" checked /><label for="europe">Europe</label><br/>
+				<input type="radio" name="continent" value="afrique" id="afrique" /><label for="afrique">Afrique</label><br/>
+				<input type="radio" name="continent" value="asie" id="asie" /><label for="asie">Asie</label><br/>
+				<input type="radio" name="continent" value="amerique" id="amerique" /><label for="amerique">Amérique</label><br/>
+				<input type="radio" name="continent" value="australie" id="australie" /><label for="australie">Australie</label><br/>
+			</p>
+		</form>
+		
+		<p>Les listes déroulantes :</p>
+		<form method="post" action="traitement.php">
+			<p>
+				<label for="pays">Dans quel pays habitez-vous ?</label><br/>
+				<select name="pays" id="pays">
+					<option value="france">France</option>
+					<option value="espagne">Espagne</option>
+					<option value="italie">Italie</option>
+					<option value="royaume-uni">Royaume-Uni</option>
+					<option value="canada" selected>Canada</option>
+					<option value="etats-unis">Etats-Unis</option>
+					<option value="chine">Chine</option>
+					<option value="japon">Japon</option>
+				</select>
+			</p>
+		</form>
+		
+		
+		<p>Les listes déroulantes avec regroupement par options :</p>
+		<form method="post" action="traitement.php">
+			<p>
+				<label for="pays">Dans quel pays habitez-vous ?</label><br/>
+				<select name="pays" id="pays">
+					<optgroup label="Europe">
+						<option value="france">France</option>
+						<option value="espagne">Espagne</option>
+						<option value="italie">Italie</option>
+						<option value="royaume-uni">Royaume-Uni</option>
+					</optgroup>
+					<optgroup label="Amérique">
+						<option value="canada" selected>Canada</option>
+						<option value="etats-unis">Etats-Unis</option>
+					</optgroup>
+					<optgroup label="Asie">
+						<option value="chine">Chine</option>
+						<option value="japon">Japon</option>
+					</optgroup>
+				</select>
+			</p>
+		</form>
+		
+		
+		<p>Regrouper les champs :</p>
+		<form method="post" action="traitement.php">
+			<fieldset>
+				<legend>Vos coordonnées</legend>
+				<label for="nom">Quel est votre nom ?</label>
+				<input type="text" name="nom" id="nom" />
+				
+				<label for="prenom" required>Quel est votre prénom ?</label>
+				<input type="text" name="prenom" id="prenom" />
+				
+				<label for="email">Quel est votre email ?</label>
+				<input type="email" name="email" id="email" />
+			</fieldset>
+			
+			<fieldset>
+				<legend>Votre souhait</legend>
+				<p>Faites un souhait que vous voudriez voir exaucé :</p>
+				<input type="radio" name="souhait" value="riche" id="riche" /><label for="riche">Etre riche</label><br/>
+				<input type="radio" name="souhait" value="celebre" id="celebre" /><label for="celebre">Etre celebre</label><br/>
+				<input type="radio" name="souhait" value="intelligent" id="intelligent" /><label for="intelligent">Etre <strong>encore</strong> plus intelligent</label><br/>
+				<input type="radio" name="souhait" value="autre" id="autre" /><label for="autre">Autre...</label><br/>
+				
+				<p>
+					<label for="precisions">Si "Autre", veuillez préciser :</label>
+					<textarea name="precisions" id="precisions" cols="40" rows="4">Précisez-ici</textarea>
+				</p>
+			</fieldset>
+			
+			<input type="submit" value="Envoyer" />
+		</form>
+	</body>
+</html>

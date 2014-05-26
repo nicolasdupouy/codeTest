@@ -46,11 +46,11 @@ class SimpleAtomicLong
 	public long get()
 	{
 		// TODO -- you fill in here
-		mRWLock.writeLock().lock();
+		mRWLock.readLock().lock();
 		try {
 			return mValue;
 		} finally {
-			mRWLock.writeLock().unlock();
+			mRWLock.readLock().unlock();
 		}
 	}
 

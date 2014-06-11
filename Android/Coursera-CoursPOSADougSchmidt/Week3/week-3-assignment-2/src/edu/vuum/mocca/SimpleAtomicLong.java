@@ -30,12 +30,7 @@ class SimpleAtomicLong
 	public SimpleAtomicLong(long initialValue)
 	{
 		// TODO -- you fill in here
-		mRWLock.writeLock().lock();
-		try {
-			mValue = initialValue;
-		} finally {
-			mRWLock.writeLock().unlock();
-		}
+		mValue = initialValue;
 	}
 
 	/**

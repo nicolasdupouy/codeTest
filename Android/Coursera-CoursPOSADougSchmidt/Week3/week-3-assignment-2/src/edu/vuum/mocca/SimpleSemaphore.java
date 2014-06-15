@@ -17,29 +17,29 @@ public class SimpleSemaphore {
 	 * Define a ReentrantLock to protect the critical section.
 	 */
 	// TODO - you fill in here
-	ReentrantLock mReentrantLock;
+	private ReentrantLock mReentrantLock;
 
 	/**
 	 * Define a Condition that waits while the number of permits is 0.
 	 */
 	// TODO - you fill in here
-	Condition zeroPermitsNumberCondition;
+	private Condition mZeroPermitsNumberCondition;
 
 	/**
 	 * Define a count of the number of available permits.
 	 */
 	// TODO - you fill in here. Make sure that this data member will
 	// ensure its values aren't cached by multiple Threads..
-	private int permitsNumber;
+	private volatile int mAvailablePermitsNumber;
 
 	public SimpleSemaphore(int permits, boolean fair) {
 		// TODO - you fill in here to initialize the SimpleSemaphore,
 		// making sure to allow both fair and non-fair Semaphore
 		// semantics.
-		this.permitsNumber = permits;
+		this.mAvailablePermitsNumber = permits;
 
 		mReentrantLock = new ReentrantLock(fair);
-		zeroPermitsNumberCondition = mReentrantLock.newCondition();
+		mZeroPermitsNumberCondition = mReentrantLock.newCondition();
 	}
 
 	/**
@@ -48,12 +48,12 @@ public class SimpleSemaphore {
 	 */
 	public void acquire() throws InterruptedException {
 		// TODO - you fill in here.
-		mReentrantLock.lock();
+		mReentrantLock.lockInterruptibly();
 		try {
-			if (permitsNumber == 0) {
-				zeroPermitsNumberCondition.await();
+			while (mAvailablePermitsNumber <= 0) {
+				mZeroPermitsNumberCondition.await();
 			}
-			permitsNumber--;
+			mAvailablePermitsNumber--;
 		} finally {
 			mReentrantLock.unlock();
 		}
@@ -67,10 +67,10 @@ public class SimpleSemaphore {
 		// TODO - you fill in here.
 		mReentrantLock.lock();
 		try {
-			if (permitsNumber == 0) {
-				zeroPermitsNumberCondition.awaitUninterruptibly();
+			while (mAvailablePermitsNumber <= 0) {
+				mZeroPermitsNumberCondition.awaitUninterruptibly();
 			}
-			permitsNumber--;
+			mAvailablePermitsNumber--;
 		} finally {
 			mReentrantLock.unlock();
 		}
@@ -83,8 +83,10 @@ public class SimpleSemaphore {
 		// TODO - you fill in here.
 		mReentrantLock.lock();
 		try {
-			permitsNumber++;
-			zeroPermitsNumberCondition.signal();
+			if (++mAvailablePermitsNumber > 0)
+			{
+				mZeroPermitsNumberCondition.signal();
+			}
 		} finally {
 			mReentrantLock.unlock();
 		}
@@ -96,11 +98,7 @@ public class SimpleSemaphore {
 	public int availablePermits() {
 		// TODO - you fill in here by changing null to the appropriate
 		// return value.
-		mReentrantLock.lock();
-		try {
-			return permitsNumber;
-		} finally {
-			mReentrantLock.unlock();
-		}
+		// No lock is needed since mAvailablePermitsNumber is volatile
+		return mAvailablePermitsNumber;
 	}
 }

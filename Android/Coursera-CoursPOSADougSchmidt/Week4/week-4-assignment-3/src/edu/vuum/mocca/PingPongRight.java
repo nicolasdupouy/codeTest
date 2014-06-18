@@ -48,7 +48,7 @@ public class PingPongRight {
 		 * iteration.
 		 */
 		// TODO - You fill in here.
-		private String mStringToPrint;
+		private final String mStringToPrint;
 
 		/**
 		 * Two SimpleSemaphores use to alternate pings and pongs. You
@@ -84,12 +84,15 @@ public class PingPongRight {
 			 * implements the core ping/pong algorithm.
 			 */
 			// TODO - You fill in here.
-			for (int i = 0; i < mMaxLoopIterations; i++) {
-				acquire();
-				System.out.println(mStringToPrint + "(" + (i + 1) + ")");
-				release();
+			try {
+				for (int i = 0; i < mMaxLoopIterations; i++) {
+					acquire();
+					System.out.println(mStringToPrint + "(" + (i + 1) + ")");
+					release();
+				}
+			} finally {
+				mLatch.countDown();
 			}
-			mLatch.countDown();
 		}
 
 		/**
@@ -157,11 +160,7 @@ public class PingPongRight {
 		// TODO - replace the following line with a barrier
 		// synchronizer call to mLatch that waits for both threads to
 		// finish.
-		try {
-			mLatch.await();
-		} catch (java.lang.InterruptedException e) {
-			e.printStackTrace();
-		}
+		mLatch.await();
 
 		System.out.println(finishString);
 	}

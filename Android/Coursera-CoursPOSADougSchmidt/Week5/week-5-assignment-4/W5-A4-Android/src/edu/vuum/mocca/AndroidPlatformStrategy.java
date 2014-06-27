@@ -60,13 +60,15 @@ public class AndroidPlatformStrategy extends PlatformStrategy
 		 * and appends the outputString to a TextView.
 		 */
 		// TODO - You fill in here.
-		mActivity.get().runOnUiThread(new Runnable() {
+		if (mActivity.get() != null) {
+			mActivity.get().runOnUiThread(new Runnable() {
 
-			@Override
-			public void run() {
-				mTextViewOutput.append(outputString + LINE_RETURN);
-			}
-		});
+				@Override
+				public void run() {
+					mTextViewOutput.append(outputString + LINE_RETURN);
+				}
+			});
+		}
 	}
 
 	/** Indicate that a game thread has finished running. */

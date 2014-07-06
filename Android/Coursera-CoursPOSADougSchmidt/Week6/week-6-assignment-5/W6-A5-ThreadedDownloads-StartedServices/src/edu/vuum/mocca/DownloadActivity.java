@@ -114,8 +114,7 @@ public class DownloadActivity extends DownloadBase {
 			// TODO - You fill in here to start the
 			// DownloadIntentService with the appropriate Intent
 			// returned from the makeIntent() factory method.
-			Intent intentDownloadIntentService = DownloadUtils.makeMessengerIntent(this,
-					DownloadIntentService.class,
+			Intent intentDownloadIntentService = DownloadIntentService.makeIntent(this,
 					handler,
 					getUrlString());
 			startService(intentDownloadIntentService);
@@ -127,8 +126,7 @@ public class DownloadActivity extends DownloadBase {
 			// TODO - You fill in here to start the
 			// ThreadPoolDownloadService with the appropriate Intent
 			// returned from the makeIntent() factory method.
-			Intent intentThreadPoolDownloadService = DownloadUtils.makeMessengerIntent(this,
-					ThreadPoolDownloadService.class,
+			Intent intentThreadPoolDownloadService = ThreadPoolDownloadService.makeIntent(this,
 					handler,
 					getUrlString());
 			startService(intentThreadPoolDownloadService);

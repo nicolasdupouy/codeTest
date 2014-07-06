@@ -102,8 +102,11 @@ public class ThreadPoolDownloadService extends Service {
 			@Override
 			public void run() {
 				Uri uri = intent.getData();
-				Messenger messenger = (Messenger) intent.getExtras().get(DownloadUtils.MESSENGER_KEY);
-				DownloadUtils.downloadAndRespond(getBaseContext(), uri, messenger);
+				Messenger messenger = (Messenger) intent.getParcelableExtra(DownloadUtils.MESSENGER_KEY);
+				DownloadUtils.downloadAndRespond(
+						ThreadPoolDownloadService.this,
+						uri,
+						messenger);
 			}
 		};
 

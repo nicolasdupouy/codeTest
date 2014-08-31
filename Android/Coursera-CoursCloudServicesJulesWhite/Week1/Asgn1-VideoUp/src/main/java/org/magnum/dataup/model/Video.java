@@ -57,8 +57,11 @@ public class Video {
 
 	public interface VideoBuilder extends Builder<Video> {
 		public VideoBuilder withTitle(String title);
+
 		public VideoBuilder withDuration(long duration);
+
 		public VideoBuilder withSubject(String subject);
+
 		public VideoBuilder withContentType(String contentType);
 	}
 
@@ -142,4 +145,14 @@ public class Video {
 				&& getDuration() == ((Video) obj).getDuration();
 	}
 
+	@Override
+	public String toString() {
+		return "id: " + id + "\n"
+				+ "title: " + title + "\n"
+				+ "duration: " + duration + "\n"
+				+ "location: " + location + "\n"
+				+ "subject: " + subject + "\n"
+				+ "contentType: " + contentType + "\n"
+				+ "dataUrl: " + dataUrl;
+	}
 }

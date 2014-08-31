@@ -61,6 +61,11 @@ public class VideoService extends VideoServiceAbstract {
 	public static final String VIDEO_DATA_PATH = VIDEO_SERVICE_PATH + "/{id}/data";
 
 	private static final int HTTP_RESPONSE_ERROR_VIDEO_FILE_NOT_FOUND = 404;
+	private VideoFileManager videoFileManager;
+
+	public VideoService() throws IOException {
+		videoFileManager = VideoFileManager.get();
+	}
 
 	private void setResponseErrorVideoFileNotFound(HttpServletResponse response) {
 		response.setStatus(HTTP_RESPONSE_ERROR_VIDEO_FILE_NOT_FOUND);
@@ -82,12 +87,12 @@ public class VideoService extends VideoServiceAbstract {
 			HttpServletResponse response) throws IOException {
 
 		Video video = videos.get(id);
-		if (video == null || !VideoFileManager.get().hasVideoData(video)) {
+		if (video == null || !videoFileManager.hasVideoData(video)) {
 			setResponseErrorVideoFileNotFound(response);
 			throw new ResourceNotFoundException();
 		}
 
-		VideoFileManager.get().copyVideoData(video, response.getOutputStream());
+		videoFileManager.copyVideoData(video, response.getOutputStream());
 		return response;
 	}
 
@@ -103,7 +108,7 @@ public class VideoService extends VideoServiceAbstract {
 			throw new ResourceNotFoundException();
 		}
 
-		VideoFileManager.get().saveVideoData(video, videoData.getInputStream());
+		videoFileManager.saveVideoData(video, videoData.getInputStream());
 		return new VideoStatus(VideoState.READY);
 	}
 }

@@ -1,5 +1,14 @@
 package org.magnum.mobilecloud.video.repository;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.google.common.base.Objects;
 
 /**
@@ -16,15 +25,20 @@ import com.google.common.base.Objects;
  * 
  * @author mitchell
  */
+@Entity
 public class Video {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String name;
 	private String url;
 	private long duration;
 	private long likes;
-	
+
+	@ElementCollection
+	private Set<String> usersLiking = new HashSet<String>();
+
 	public Video() {
 	}
 
@@ -71,16 +85,57 @@ public class Video {
 	public long getLikes() {
 		return likes;
 	}
-	
+
 	public void setLikes(long likes) {
 		this.likes = likes;
 	}
-	
+
+	public Set<String> getUsersLiking() {
+		return usersLiking;
+	}
+
+	public void setUsersLiking(Set<String> usersLiking) {
+		this.usersLiking = usersLiking;
+	}
+
+	// End of getters/setters shitty syntax
+	public boolean addLike(String userName) {
+		boolean userAdded = addUserLiking(userName);
+		if (userAdded) {
+			this.likes++;
+		}
+		return userAdded;
+	}
+
+	private boolean addUserLiking(String userName) {
+		if (!usersLiking.contains(userName)) {
+			usersLiking.add(userName);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean suppressLike(String userName) {
+		boolean userSuppressed = suppressUserLiking(userName);
+		if (userSuppressed) {
+			this.likes--;
+		}
+		return userSuppressed;
+	}
+
+	private boolean suppressUserLiking(String userName) {
+		if (usersLiking.contains(userName)) {
+			usersLiking.remove(userName);
+			return true;
+		}
+		return false;
+	}
+
 	/**
-	 * Two Videos will generate the same hashcode if they have exactly the same
-	 * values for their name, url, and duration.
-	 * 
-	 */
+			 * Two Videos will generate the same hashcode if they have exactly the same
+			 * values for their name, url, and duration.
+			 * 
+			 */
 	@Override
 	public int hashCode() {
 		// Google Guava provides great utilities for hashing
@@ -105,4 +160,19 @@ public class Video {
 		}
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(
+				"id: " + id + "\n"
+						+ "name: " + name + "\n"
+						+ "duration: " + duration + "\n"
+						+ "likes: " + likes + "\n"
+						+ "url: " + url + "\n");
+		if (!usersLiking.isEmpty()) {
+			sb.append(
+					"usersLiking: " + usersLiking + "\n");
+		}
+		return sb.toString();
+	}
 }

@@ -61,19 +61,35 @@ public class Program {
 		}
 
 		private void create() {
-			// [Reactor pattern]
 			ChannelFactory factory = new NioServerSocketChannelFactory(
 					Executors.newCachedThreadPool(),
 					Executors.newCachedThreadPool());
 
+			/*
+			 * => [Reactor pattern]
+			 * 
+			 * It handles the requests made concurrently by multiples clients (connecting for exemple with "telnet localhost portNumber")
+			 * This is the reason of the pools of threads initialized before.
+			 */
 			bootstrap = new ServerBootstrap(factory);
 			bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
 				public ChannelPipeline getPipeline() {
 					return Channels.pipeline(
-							new StringDecoder(CharsetUtil.UTF_8), // UpstreamHandler
-							new StringEncoder(CharsetUtil.UTF_8), // DownstreamHandler
-							new DelimiterBasedFrameDecoder(ALLOWED_CHARACTER_BUFFER_SIZE, Delimiters.lineDelimiter()), // Upstream,
-							new EchoServerHandler()); //  [Acceptor-Connector pattern] - Connector part (connect to the handler)
+							new StringDecoder(CharsetUtil.UTF_8),
+							new StringEncoder(CharsetUtil.UTF_8),
+							/*
+							 * For information, the "Delimiters.lineDelimiter()" handles the ["chunk" at a time or (b) a "line" at a time] as professor Schmidt asked.
+							 * ==> http://docs.jboss.org/netty/3.2/api/org/jboss/netty/handler/codec/frame/Delimiters.html
+							 */
+							new DelimiterBasedFrameDecoder(ALLOWED_CHARACTER_BUFFER_SIZE, Delimiters.lineDelimiter()),
+							/*
+							 * => [Acceptor-Connector pattern] - Connector part (connect to the handler)
+							 * 
+							 * This is the service handler who manages the incoming requests and dispatches them synchronously to the associated request handlers
+							 * 
+							 * This part is the Connector part which dispatch to the request handler (which is here the "EchoServerHandler" class).
+							 */
+							new EchoServerHandler());
 				}
 			});
 
@@ -82,7 +98,13 @@ public class Program {
 		}
 
 		private void bind() {
-			// [Acceptor-Connector pattern] - Acceptor part
+			/*
+			 * => [Acceptor-Connector pattern] - Acceptor part
+			 * 
+			 * This is the service handler who manages the incoming requests and dispatches them synchronously to the associated request handlers
+			 * 
+			 * This part is the Acceptor part who listen to and accept the incoming requests. The hand will then be given to the Connector part (see previous comment).
+			 */
 			Channel acceptor = bootstrap.bind(new InetSocketAddress(portNumber));
 
 			if (!acceptor.isBound()) {
@@ -97,7 +119,13 @@ public class Program {
 		}
 	}
 
-	// [Wrapper Facade pattern]
+	/*
+	 * => [Wrapper Facade pattern]
+	 * 
+	 * It allows the developer to use a comfortable API (see the overrided methods below) instead of using directly 
+	 * sockets and complex data structure relationships as explain in the course.
+	 * In another words, it hides the complexity of the reality.
+	 */
 	public class EchoServerHandler extends SimpleChannelUpstreamHandler {
 
 		private static final String HEADER_CLIENT_MESSAGE = "Hello client, I received your message saying: ";

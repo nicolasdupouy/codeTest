@@ -15,3 +15,11 @@ gen/
 *_.1
 *.1
 *.xcodeproj
+
+# Scala
+submission/
+target/
+lib_managed/
+#project/
+.cache
+

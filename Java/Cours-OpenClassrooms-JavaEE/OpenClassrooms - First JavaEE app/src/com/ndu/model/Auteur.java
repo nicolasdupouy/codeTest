@@ -1,4 +1,4 @@
-package com.ndu.beans;
+package com.ndu.model;
 
 public class Auteur {
 

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ndu.beans.Auteur;
+import com.ndu.model.Auteur;
 
 /**
  * Servlet implementation class TestServler

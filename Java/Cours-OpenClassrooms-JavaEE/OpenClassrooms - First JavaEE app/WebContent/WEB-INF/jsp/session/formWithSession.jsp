@@ -5,11 +5,13 @@
 	<title>Page bonjour</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu.jsp" %>
 
-	<c:out value="${ firstName }"/>
-	
-	<form method="post" action="FormWithCookie">
+	<c:if test="${ !empty sessionScope.firstName && !empty sessionScope.lastName }">
+		<c:out value="Vous êtes ${ sessionScope.firstName } ${ sessionScope.lastName }"></c:out>
+	</c:if>
+
+	<form method="post" action="FormWithSession">
 		<p>
 			<label for="firstName">First name: </label>
 			<input type="text" id="firstName" name="firstName" />

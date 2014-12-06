@@ -2,16 +2,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Page bonjour</title>
+	<title>Page SQL with JDBC</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu.jsp" %>
 
-	<c:if test="${ !empty sessionScope.firstName && !empty sessionScope.lastName }">
-		<c:out value="Vous êtes ${ sessionScope.firstName } ${ sessionScope.lastName }"></c:out>
-	</c:if>
-
-	<form method="post" action="FormWithSession">
+	<form method="post" action="SQLWithJDBC">
 		<p>
 			<label for="firstName">First name: </label>
 			<input type="text" id="firstName" name="firstName" />
@@ -22,5 +18,11 @@
 		</p>
 		<input type="submit">
 	</form>
+	
+	<ul>
+		<c:forEach var="utilisateur" items="${ utilisateurs }">
+			<li><c:out value="${ utilisateur.firstName }"/><c:out value="${ utilisateur.lastName }"/></li>
+		</c:forEach>
+	</ul>
 </body>
 </html>

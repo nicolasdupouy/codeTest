@@ -1,0 +1,10 @@
+In a first terminal:
+--------------------
+sudo mysqld_safe
+=> The goal is to have a sandbox with no necessary configuration
+
+In a second terminal:
+---------------------
+mysql -h localhost -u root
+
+show databases;

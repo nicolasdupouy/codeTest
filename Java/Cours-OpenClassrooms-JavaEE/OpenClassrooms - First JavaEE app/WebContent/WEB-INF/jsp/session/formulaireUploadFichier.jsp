@@ -5,7 +5,7 @@
 	<title>Page bonjour</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu.jsp" %>
 	<c:if test="${ !empty fichier }">
 		<c:out value="Le fichier ${ fichier } (${ description }) a été uploadé !" />
 	</c:if>

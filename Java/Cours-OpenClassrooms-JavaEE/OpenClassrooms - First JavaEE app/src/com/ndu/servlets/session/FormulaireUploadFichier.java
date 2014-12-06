@@ -1,4 +1,4 @@
-package com.ndu.servlets;
+package com.ndu.servlets.session;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import com.ndu.servlets.Parameters;
+
 /**
  * Servlet implementation class FormulaireUploadFichier
  */
@@ -21,14 +23,13 @@ public class FormulaireUploadFichier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public static final int TAILLE_TAMPON = 10240;
-	public static final String CHEMIN_FICHIERS = "/Users/nicolasdupouy/Downloads/"; // A changer
 
 	public FormulaireUploadFichier() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/formulaireUploadFichier.jsp")
+		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/session/formulaireUploadFichier.jsp")
 				.forward(request, response);
 	}
 
@@ -52,12 +53,12 @@ public class FormulaireUploadFichier extends HttpServlet {
 					.substring(nomFichier.lastIndexOf('\\') + 1);
 
 			// On écrit définitivement le fichier sur le disque
-			ecrireFichier(part, nomFichier, CHEMIN_FICHIERS);
+			ecrireFichier(part, nomFichier, Parameters.CHEMIN_FICHIERS);
 
 			request.setAttribute(nomChamp, nomFichier);
 		}
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/formulaireUploadFichier.jsp")
+		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/session/formulaireUploadFichier.jsp")
 				.forward(request, response);
 	}
 

@@ -5,7 +5,7 @@
 	<title>Page bonjour</title>
 </head>
 <body>
-	<%@ include file="menu.jsp" %>
+	<%@ include file="../menu.jsp" %>
 	
 	<c:if test="${ !empty ConnectionForm.result }">
 		<p><c:out value="${ ConnectionForm.result }" /></p>

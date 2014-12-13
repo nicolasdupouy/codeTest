@@ -1,25 +1,42 @@
-# Android temp directories
+# Frameworks :
+# ------------
+# - [Android] temp directories
 bin/
 gen/
 #libs/
 *.zip
 
-# Eclipse temp
+
+# IDE :
+# -----
+# - [Eclipse]
 .settings/
 .metadata/
 
-# Apple temp
-.DS_Store
-
-# XCode
+# - [XCode]
 *_.1
 *.1
 *.xcodeproj
 
-# Scala
+
+# Generic files to ignore :
+# -------------------------
+# - Apple temp
+.DS_Store
+
+
+# Languages :
+# -----------
+# - [Java]
+*.class
+
+# - [Scala]
 submission/
 target/
 lib_managed/
 #project/
 .cache
+
+# - [Node.JS]
+node_modules/
 

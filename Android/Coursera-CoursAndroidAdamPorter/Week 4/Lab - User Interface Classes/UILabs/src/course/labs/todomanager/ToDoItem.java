@@ -18,7 +18,11 @@ public class ToDoItem {
 	};
 
 	public enum Status {
-		NOTDONE, DONE
+		NOTDONE, DONE;
+
+		public Status switchStatus() {
+			return this == DONE ? NOTDONE : DONE;
+		}
 	};
 
 	public final static String TITLE = "title";
@@ -81,6 +85,11 @@ public class ToDoItem {
 		mStatus = status;
 	}
 
+	public Status switchStatus() {
+		mStatus = mStatus.switchStatus();
+		return mStatus;
+	}
+
 	public Date getDate() {
 		return mDate;
 	}
@@ -99,7 +108,7 @@ public class ToDoItem {
 		intent.putExtra(ToDoItem.PRIORITY, priority.toString());
 		intent.putExtra(ToDoItem.STATUS, status.toString());
 		intent.putExtra(ToDoItem.DATE, date);
-	
+
 	}
 
 	public String toString() {

@@ -8,6 +8,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,7 @@ import course.labs.todomanager.ToDoItem.Priority;
 import course.labs.todomanager.ToDoItem.Status;
 
 public class AddToDoActivity extends Activity {
-	
+
 	// 7 days in milliseconds - 7 * 24 * 60 * 60 * 1000
 	private static final int SEVEN_DAYS = 604800000;
 
@@ -35,13 +36,16 @@ public class AddToDoActivity extends Activity {
 	private static TextView dateView;
 	private static TextView timeView;
 
-	
 	private Date mDate;
 	private RadioGroup mPriorityRadioGroup;
 	private RadioGroup mStatusRadioGroup;
 	private EditText mTitleText;
 	private RadioButton mDefaultStatusButton;
 	private RadioButton mDefaultPriorityButton;
+
+	public static Intent makeAddToDoActivity(Context context) {
+		return new Intent(context, AddToDoActivity.class);
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +97,7 @@ public class AddToDoActivity extends Activity {
 				log("Entered cancelButton.OnClickListener.onClick()");
 
 				//TODO - Implement onClick().  
-
+				finish();
 			}
 		});
 
@@ -106,17 +110,16 @@ public class AddToDoActivity extends Activity {
 				log("Entered resetButton.OnClickListener.onClick()");
 
 				//TODO - Reset data fields to default values
-				
-
-			
-			
-			
+				mTitleText.getText().clear();
+				mPriorityRadioGroup.check(mDefaultPriorityButton.getId());
+				mStatusRadioGroup.check(mDefaultStatusButton.getId());
+				setDefaultDateTime();
 			}
 		});
 
 		// OnClickListener for the Submit Button
 		// Implement onClick().
-		
+
 		final Button submitButton = (Button) findViewById(R.id.submitButton);
 		submitButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -124,15 +127,15 @@ public class AddToDoActivity extends Activity {
 				log("Entered submitButton.OnClickListener.onClick()");
 
 				// Gather ToDoItem data  
-				
+
 				//TODO - Get Priority
-				Priority priority = null;
+				Priority priority = getPriority();
 
 				//TODO -  Get Status
-				Status status = null;
+				Status status = getStatus();
 
 				//TODO -  Title
-				String titleString = null;
+				String titleString = mTitleText.getText().toString();
 
 				// Date
 				String fullDate = dateString + " " + timeString;
@@ -142,18 +145,16 @@ public class AddToDoActivity extends Activity {
 				ToDoItem.packageIntent(data, titleString, priority, status, fullDate);
 
 				//TODO - return data Intent and finish
-				
-
-				
-				
+				setResult(RESULT_OK, data);
+				finish();
 			}
 		});
 	}
 
 	// Do not modify below here
-	
+
 	// Use this method to set the default date and time
-	
+
 	private void setDefaultDateTime() {
 
 		// Default is current time + 7 days

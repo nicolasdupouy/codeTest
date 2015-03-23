@@ -1,4 +1,4 @@
-package com.nicolasdupouy.programmingpuzzlers;
+package com.nicolasdupouy.programmingpuzzlers.dynamicdispatch;
 
 class Dog {
 	public static void bark() {

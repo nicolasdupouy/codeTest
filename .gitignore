@@ -12,6 +12,7 @@ gen/
 # - [Eclipse]
 .settings/
 .metadata/
+target/
 
 # - [XCode]
 *_.1
@@ -32,10 +33,10 @@ gen/
 
 # - [Scala]
 submission/
-target/
 lib_managed/
 #project/
 .cache
+.worksheet/
 
 # - [Node.JS]
 node_modules/

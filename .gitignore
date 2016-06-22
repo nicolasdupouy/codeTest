@@ -9,6 +9,9 @@ gen/
 
 # IDE :
 # -----
+# Vim
+*.swp
+
 # - [IDEA IntelliJ]
 *.iml
 .idea/

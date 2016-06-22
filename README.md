@@ -2,6 +2,8 @@
 
 The goal of this repository is to store all the codes I want to test (from books, web courses, etc.).
 
+It is kind of messy but ... It is my sandbox !
+
 Existing repositories:
 * https://bitbucket.org/nicolasdupouy/codetest
 * https://github.com/nicolasdupouy/codeTest

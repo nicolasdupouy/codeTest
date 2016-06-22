@@ -9,6 +9,10 @@ gen/
 
 # IDE :
 # -----
+# - [IDEA IntelliJ]
+*.iml
+.idea/
+
 # - [Eclipse]
 .settings/
 .metadata/

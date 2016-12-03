@@ -6,6 +6,10 @@ gen/
 #libs/
 *.zip
 
+# - [Google App Engine]
+**/out/artifacts/
+**/out/production/
+
 
 # IDE :
 # -----
@@ -34,7 +38,6 @@ target/
 # -------------------------
 # - Apple temp
 .DS_Store
-
 
 # Languages :
 # -----------

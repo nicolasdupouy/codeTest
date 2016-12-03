@@ -9,7 +9,7 @@ import {Hero} from "./app_hero";
     <div><label>id: </label>{{myHero.id}}</div>
     <div>
         <label>name: </label>
-        <input value="{{myHero.name}}" placeholder="name">
+        <input [(ngModel)]="myHero.name" placeholder="name">
     </div>
     <!--<p>Heroes:</p>
     <ul>

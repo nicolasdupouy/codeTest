@@ -2,6 +2,10 @@
 
 The goal of this repository is to store all the codes I want to test (from books, web courses, etc.).
 
+Existing repositories:
+* https://bitbucket.org/nicolasdupouy/codetest
+* https://github.com/nicolasdupouy/codeTest
+
 
 ## SSH Configuration
 * Generate your private key:
@@ -12,7 +16,7 @@ The goal of this repository is to store all the codes I want to test (from books
 
     `ssh-add ~/.ssh/id_rsa`
 
-* lish SSH added keys:
+* list SSH added keys:
 
     `ssh-add -l`
 

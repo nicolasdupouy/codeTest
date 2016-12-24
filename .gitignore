@@ -24,6 +24,8 @@ gen/
 .settings/
 .metadata/
 target/
+.classpath
+.project
 
 # - [XCode]
 *_.1
@@ -43,6 +45,7 @@ target/
 # -----------
 # - [Java]
 *.class
+lib
 
 # - [Scala]
 submission/

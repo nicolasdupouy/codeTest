@@ -19,6 +19,9 @@ target/
 *.1
 *.xcodeproj
 
+# - [JetBrains]
+.idea/
+*.iml
 
 # Generic files to ignore :
 # -------------------------

@@ -5,9 +5,23 @@ fn main() {
         Some(argument) => argument,
         None => panic!("Numerator mandatory in argument.")
     };
-    println!("Numerator is: {}", numerator);
+    let denominator = match env::args().nth(2) {
+        Some(argument) => argument,
+        None => panic!("Denominator mandatory in argument.")
+    };
+    println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
 
-    let result = compute_division(-4, 2);
+    let numerator = match numerator.parse::<i32>() {
+        Ok(numerator) => numerator,
+        Err(error) => panic!("Impossible to convert argument. Reason: {}", error)
+    };
+    let denominator = match denominator.parse::<i32>() {
+        Ok(denominator) => denominator,
+        Err(error) => panic!("Impossible to convert argument. Reason: {}", error)
+    };
+    println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
+
+    let result = compute_division(numerator, denominator);
     println!("Result: {}", result);
 }
 

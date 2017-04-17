@@ -22,6 +22,16 @@ impl Division {
     }
 }
 
+trait HasSymbol {
+    fn symbol(&self) -> String;
+}
+
+impl HasSymbol for Division {
+    fn symbol(&self) -> String {
+        "/".to_string()
+    }
+}
+
 fn main() {
     let numerator = match env::args().nth(1) {
         Some(argument) => argument,
@@ -44,6 +54,7 @@ fn main() {
     println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
 
     let division = Division::new(numerator, denominator);
+    println!("Symbol: {}", division.symbol());
     let result = division.compute();
     println!("Result: {}", result);
 }

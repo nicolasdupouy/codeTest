@@ -6,6 +6,13 @@ struct Division {
 }
 
 impl Division {
+    fn new(x: i32, y:i32) -> Division {
+        Division {
+            numerator: x,
+            denominator: y,
+        }
+    }
+
     fn compute(&self) -> i32 {
         match self.denominator {
             0 => panic!("Division by 0"),
@@ -36,7 +43,7 @@ fn main() {
     };
     println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
 
-    let division = Division {numerator: numerator, denominator: denominator};
+    let division = Division::new(numerator, denominator);
     let result = division.compute();
     println!("Result: {}", result);
 }

@@ -6,7 +6,7 @@ struct Division {
 }
 
 impl Division {
-    fn new(x: i32, y:i32) -> Division {
+    fn new(x: i32, y: i32) -> Division {
         Division {
             numerator: x,
             denominator: y,
@@ -54,6 +54,14 @@ fn main() {
     println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
 
     let division = Division::new(numerator, denominator);
+    /*
+      ->    let division2 = division;
+     wouldn't work because the ownership of the pointed value would be transfered from "division" to "division2".
+     This is how RUST guarantees security and robustness.
+
+     By using "&", we give a reference to the value.
+    */
+    //let division2 = &division;
     println!("Symbol: {}", division.symbol());
     let result = division.compute();
     println!("Result: {}", result);

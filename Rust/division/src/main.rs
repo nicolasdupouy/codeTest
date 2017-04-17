@@ -1,5 +1,20 @@
 use std::env;
 
+struct Division {
+    numerator: i32,
+    denominator: i32,
+}
+
+impl Division {
+    fn compute(&self) -> i32 {
+        match self.denominator {
+            0 => panic!("Division by 0"),
+            1 => self.numerator,
+            _ => self.numerator / self.denominator
+        }
+    }
+}
+
 fn main() {
     let numerator = match env::args().nth(1) {
         Some(argument) => argument,
@@ -21,14 +36,7 @@ fn main() {
     };
     println!("Numerator is: {}, and Denominator is {}", numerator, denominator);
 
-    let result = compute_division(numerator, denominator);
+    let division = Division {numerator: numerator, denominator: denominator};
+    let result = division.compute();
     println!("Result: {}", result);
-}
-
-fn compute_division(x: i32, y: i32) -> i32 {
-    match y {
-        0 => panic!("Division by 0"),
-        1 => x,
-        _ => x/y
-    }
 }

@@ -4,12 +4,12 @@ import datas
 import functions
 
 def launch_pendu():
-    functions.load_scores()
+    scores = functions.load_scores(datas.scoresFileName)
     userName = functions.askUserName()
     while (userName != 'q'):
         playTurn(userName)
         userName = functions.askUserName()
-    functions.save_scores()
+    functions.save_scores(datas.scoresFileName)
 
 def playTurn(userName):
     functions.getScoreForUser(userName)

@@ -1,12 +1,12 @@
 
 # number of tries in a game.
-guessing_chances_number = 8
+guessingChancesNumber = 8
 
 # name of the scores file
-scores_file_name = "scores.data"
+scoresFileName = "scores.data"
 
 # list of the known words
-words_list = ["armoire",
+wordList = ["armoire",
               "chat",
               "panier",
               "couple",

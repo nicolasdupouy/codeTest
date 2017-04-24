@@ -7,6 +7,8 @@ def load_scores(scoresFileName):
         with open(scoresFileName, 'rb') as file:
             depickler = pickle.Unpickler(file)
             scores = depickler.load()
+            file.close()
+
     else:
         scores = {}
     return scores
@@ -15,6 +17,7 @@ def save_scores(scoresFileName, scores):
     with open(scoresFileName, 'wb') as file:
         pickler = pickle.Pickler(file)
         pickler.dump(scores)
+        file.close()
 
 def askUserName():
     return input("Name ?: ")
@@ -63,9 +66,15 @@ def getWordWithX(selectedWord, lettersFound):
             wordWithX += 'X'
     return wordWithX
 
+def displayScore(scores, userName, newScore):
+    if newScore > 0:
+        countScore(scores, userName, newScore)
+        print("The new score for ", userName, " is ", scores[userName], ".")
+    else:
+        print("PENDU !")
+
 def countScore(scores, userName, newScore):
     if userName in scores:
         scores[userName] += newScore
     else:
         scores[userName] = newScore
-    print("The new score for ", userName, " is ", scores[userName], ".")

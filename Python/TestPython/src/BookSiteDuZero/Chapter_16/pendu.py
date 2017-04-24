@@ -13,7 +13,7 @@ def launch_pendu():
 def iterate(userName, scores):
     selectedWord = functions.selectWord(datas.wordList)
     newScore = functions.searchWord(selectedWord, datas.guessingChancesNumber)
-    functions.countScore(scores, userName, newScore)
+    functions.displayScore(scores, userName, newScore)
     functions.save_scores(datas.scoresFileName, scores)
 
 launch_pendu()

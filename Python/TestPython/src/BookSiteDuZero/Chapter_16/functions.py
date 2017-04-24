@@ -4,7 +4,7 @@ import random
 
 def load_scores(scoresFileName):
     if os.path.exists(scoresFileName):
-        with open(scoresFileName, 'rb') as file:
+        with os.open(scoresFileName, 'rb') as file:
             depickler = pickle.Unpickler(file)
             scores = depickler.load()
     else:
@@ -12,12 +12,12 @@ def load_scores(scoresFileName):
     return scores
 
 def save_scores(scoresFileName, scores):
-    with open(scoresFileName, 'wb') as file:
+    with os.open(scoresFileName, 'wb') as file:
         pickler = pickle.Pickler(file)
         pickler.dump(scores)
 
 def askUserName():
-    return input("Name ?: ")
+    return os.input("Name ?: ")
 
 def selectWord(wordList):
     return random.choice(wordList)

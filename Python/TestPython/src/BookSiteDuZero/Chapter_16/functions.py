@@ -7,6 +7,8 @@ def load_scores(scoresFileName):
         with open(scoresFileName, 'rb') as file:
             depickler = pickle.Unpickler(file)
             scores = depickler.load()
+            file.close()
+
     else:
         scores = {}
     return scores
@@ -15,6 +17,7 @@ def save_scores(scoresFileName, scores):
     with open(scoresFileName, 'wb') as file:
         pickler = pickle.Pickler(file)
         pickler.dump(scores)
+        file.close()
 
 def askUserName():
     return input("Name ?: ")

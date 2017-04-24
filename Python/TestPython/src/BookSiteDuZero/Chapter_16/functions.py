@@ -27,6 +27,7 @@ def searchWord(selectedWord, guessingChancesNumber):
     return 1
 
 def countScore(scores, userName, newScore):
-    # First implementation: always one
-    scores[userName] = 1
-    #scores[userName] += newScore;
+    if userName in scores:
+        scores[userName] += newScore
+    else:
+        scores[userName] = newScore

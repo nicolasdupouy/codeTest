@@ -1,15 +1,19 @@
-#!/usr/bin/python3
-# -*-coding:Utf-8 -*
+#!/opt/bin/python3
 
-'''
-Created on May 8, 2013
+import datas
+import functions
 
-@author: nicolas
-'''
 def launch_pendu():
-    player_name = pick_name()
-    
+    scores = functions.load_scores(datas.scoresFileName)
+    userName = "nicolas" #functions.askUserName()
+    while (userName != 'q'):
+        iterate(userName, scores)
+        userName = functions.askUserName()
 
+def iterate(userName, scores):
+    selectedWord = functions.selectWord(datas.wordList)
+    newScore = functions.searchWord(selectedWord, datas.guessingChancesNumber)
+    functions.displayScore(scores, userName, newScore)
+    functions.save_scores(datas.scoresFileName, scores)
 
-if __name__ == '__main__':
-    launch_pendu()
+launch_pendu()

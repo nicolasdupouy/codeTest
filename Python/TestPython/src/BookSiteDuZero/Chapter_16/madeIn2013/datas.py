@@ -1,13 +1,18 @@
+'''
+Created on May 8, 2013
+
+@author: nicolas
+'''
 
 # number of tries in a game.
-guessingChancesNumber = 8
+guessing_chances_number = 8
 
 # name of the scores file
-scoresFileName = "scores.data"
+scores_file_name = "scores.data"
 
 # list of the known words
-wordList = ["armoire",
-              "chat",
+words_list = ["armoire", 
+              "chat", 
               "panier",
               "couple",
               "appartement",

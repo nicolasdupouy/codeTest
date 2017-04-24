@@ -1,18 +1,32 @@
 import pickle
 import os
+import random
 
 def load_scores(scoresFileName):
     if os.path.exists(scoresFileName):
         with open(scoresFileName, 'rb') as file:
             depickler = pickle.Unpickler(file)
-            return depickler.load()
+            scores = depickler.load()
+    else:
+        scores = {}
+    return scores
 
-def save_scores(scores_file_name):
-    print(save_scores)
+def save_scores(scoresFileName, scores):
+    with open(scoresFileName, 'wb') as file:
+        pickler = pickle.Pickler(file)
+        pickler.dump(scores)
 
 def askUserName():
     return input("Name ?: ")
 
-def getScoreForUser(userName):
-    print(getScoreForUser)
-    print(userName)
+def selectWord(wordList):
+    return random.choice(wordList)
+
+def searchWord(selectedWord, guessingChancesNumber):
+    # First implementation: always one point
+    return 1
+
+def countScore(scores, userName, newScore):
+    # First implementation: always one
+    scores[userName] = 1
+    #scores[userName] += newScore;

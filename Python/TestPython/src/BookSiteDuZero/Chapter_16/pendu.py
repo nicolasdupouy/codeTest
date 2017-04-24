@@ -5,13 +5,15 @@ import functions
 
 def launch_pendu():
     scores = functions.load_scores(datas.scoresFileName)
-    userName = functions.askUserName()
+    userName = "nicolas" #functions.askUserName()
     while (userName != 'q'):
-        playTurn(userName)
+        iterate(userName, scores)
         userName = functions.askUserName()
-    functions.save_scores(datas.scoresFileName)
 
-def playTurn(userName):
-    functions.getScoreForUser(userName)
+def iterate(userName, scores):
+    selectedWord = functions.selectWord(datas.wordList)
+    newScore = functions.searchWord(selectedWord, datas.guessingChancesNumber)
+    functions.countScore(scores, userName, newScore)
+    functions.save_scores(datas.scoresFileName, scores)
 
 launch_pendu()

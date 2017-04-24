@@ -41,6 +41,9 @@ lib_managed/
 .cache
 .worksheet/
 
+# - [Rust]
+Cargo.lock
+
 # - [Node.JS]
 node_modules/
 

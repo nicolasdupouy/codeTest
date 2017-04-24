@@ -66,9 +66,15 @@ def getWordWithX(selectedWord, lettersFound):
             wordWithX += 'X'
     return wordWithX
 
+def displayScore(scores, userName, newScore):
+    if newScore > 0:
+        countScore(scores, userName, newScore)
+        print("The new score for ", userName, " is ", scores[userName], ".")
+    else:
+        print("PENDU !")
+
 def countScore(scores, userName, newScore):
     if userName in scores:
         scores[userName] += newScore
     else:
         scores[userName] = newScore
-    print("The new score for ", userName, " is ", scores[userName], ".")

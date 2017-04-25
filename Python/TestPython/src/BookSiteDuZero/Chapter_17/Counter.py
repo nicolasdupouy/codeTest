@@ -5,5 +5,7 @@ class Counter:
     def __init__(self):
         Counter.createdObjects += 1
 
-    def displayCreationNumber(self):
+    def displayCreationNumber(cls):
         print("{} objects created.", Counter.createdObjects)
+
+    displayCreationNumber = classmethod(displayCreationNumber)

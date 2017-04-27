@@ -5,7 +5,10 @@ let server = http.createServer();
 server.on('request', (request, response) => {
     console.log("request received");
     fs.readFile('/Users/nicolasdupouy/gitRepos/codeTest/JavaScript/Node.JS/firstWebServer/index.html', (err, data) => {
-        if (err) throw err;
+        if (err) {
+            response.writeHead(404);
+            response.end("This file doesn't exists");
+        };
         response.writeHead(200, {
             'Content-Type': 'text/html; charset=utf-8'
         });

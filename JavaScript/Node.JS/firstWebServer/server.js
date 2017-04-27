@@ -1,5 +1,5 @@
 let http = require('http');
-let fs = require('fs')
+let fs = require('fs');
 
 let server = http.createServer();
 server.on('request', (request, response) => {
@@ -8,7 +8,7 @@ server.on('request', (request, response) => {
         if (err) {
             response.writeHead(404);
             response.end("This file doesn't exists");
-        };
+        }
         response.writeHead(200, {
             'Content-Type': 'text/html; charset=utf-8'
         });

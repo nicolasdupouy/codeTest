@@ -4,9 +4,12 @@ let fs = require('fs')
 let server = http.createServer();
 server.on('request', (request, response) => {
     console.log("request received");
-    response.writeHead(200, {
-        'Content-Type': 'text/html; charset=utf-8'
+    fs.readFile('/Users/nicolasdupouy/gitRepos/codeTest/JavaScript/Node.JS/firstWebServer/index.html', (err, data) => {
+        if (err) throw err;
+        response.writeHead(200, {
+            'Content-Type': 'text/html; charset=utf-8'
+        });
+        response.end(data);
     });
-    response.end("<strong>Hello</strong> and welcome on the server");
 });
 server.listen(8080);

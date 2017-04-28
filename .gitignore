@@ -44,3 +44,5 @@ lib_managed/
 # - [Node.JS]
 node_modules/
 
+# - [Python]
+__pycache__/

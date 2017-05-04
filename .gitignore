@@ -6,6 +6,10 @@ gen/
 #libs/
 *.zip
 
+# Tools :
+# -------
+# - {Gradle}
+.gradle/
 
 # IDE :
 # -----

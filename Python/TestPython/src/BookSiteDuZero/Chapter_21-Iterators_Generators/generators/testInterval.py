@@ -2,5 +2,8 @@
 
 from interval import *
 
-for number in interval(1, 10):
+generator = interval(1, 10)
+for number in generator:
+    if number == 5:
+        generator.send(8)
     print(number)

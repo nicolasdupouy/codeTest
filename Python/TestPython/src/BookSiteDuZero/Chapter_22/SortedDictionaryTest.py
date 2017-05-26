@@ -12,7 +12,7 @@ class SortedDictionaryTest(unittest.TestCase):
         fruits["peach"] = 34
         fruits["strawberry"] = 128
         fruits["melon"] = 15
-        self.assertEqual("{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}", fruits)
+        self.assertEqual("{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}", repr(fruits))
 
 if __name__ == '__main__':
     unittest.main()

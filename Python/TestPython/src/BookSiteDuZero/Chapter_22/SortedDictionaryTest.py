@@ -6,6 +6,9 @@ import unittest
 
 class SortedDictionaryTest(unittest.TestCase):
 
+    FRUITS_REPRESENTATION_AFTER_DEFINITION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}"
+    FRUITS_REPRESENTATION_AFTER_SORT = "{'melon': 15, 'peach': 34, 'apple': 52, 'strawberry': 128}"
+
     def setUp(self):
         self.fruits = SortedDictionary()
         self.fruits["apple"] = 52
@@ -14,11 +17,11 @@ class SortedDictionaryTest(unittest.TestCase):
         self.fruits["melon"] = 15
 
     def test_dictionary_should_be_represented(self):
-        self.assertEqual("{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}", repr(self.fruits))
+        self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_DEFINITION, repr(self.fruits))
 
     def test_dictionary_should_be_sorted(self):
         self.fruits.sort()
-        self.assertEqual("{'melon': 15, 'peach': 34, 'apple': 52, 'strawberry': 128}", str(self.fruits))
+        self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_SORT, str(self.fruits))
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,13 +6,15 @@ import unittest
 
 class SortedDictionaryTest(unittest.TestCase):
 
+    def setUp(self):
+        self.fruits = SortedDictionary()
+        self.fruits["apple"] = 52
+        self.fruits["peach"] = 34
+        self.fruits["strawberry"] = 128
+        self.fruits["melon"] = 15
+
     def test_SortedDictionary_should_be_represented(self):
-        fruits = SortedDictionary()
-        fruits["apple"] = 52
-        fruits["peach"] = 34
-        fruits["strawberry"] = 128
-        fruits["melon"] = 15
-        self.assertEqual("{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}", repr(fruits))
+        self.assertEqual("{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}", repr(self.fruits))
 
 if __name__ == '__main__':
     unittest.main()

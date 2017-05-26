@@ -20,3 +20,6 @@ class SortedDictionary:
                 representation += ", "
 
         return representation + "}"
+
+    def __str__(self):
+        return repr(self)

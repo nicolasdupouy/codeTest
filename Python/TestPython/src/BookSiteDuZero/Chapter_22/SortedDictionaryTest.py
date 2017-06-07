@@ -7,7 +7,7 @@ import unittest
 class SortedDictionaryTest(unittest.TestCase):
 
     FRUITS_REPRESENTATION_AFTER_DEFINITION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}"
-    FRUITS_REPRESENTATION_AFTER_SORT = "{'melon': 15, 'peach': 34, 'apple': 52, 'strawberry': 128}"
+    FRUITS_REPRESENTATION_AFTER_SORT = "{'apple': 52, 'melon': 15, 'peach': 34, 'strawberry': 128}"
 
     def setUp(self):
         self.fruits = SortedDictionary()

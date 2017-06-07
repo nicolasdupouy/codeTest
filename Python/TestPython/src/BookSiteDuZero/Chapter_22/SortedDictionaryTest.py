@@ -19,6 +19,14 @@ class SortedDictionaryTest(unittest.TestCase):
     def test_dictionary_should_be_represented(self):
         self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_DEFINITION, repr(self.fruits))
 
+    def test_value_should_be_accessible_by_key(self):
+        appleValue = self.fruits["apple"]
+        self.assertEqual(52, appleValue)
+
+        strawberryValue = self.fruits["strawberry"]
+        self.assertEqual(128, strawberryValue)
+
+
     def test_dictionary_should_be_sorted(self):
         self.fruits.sort()
         self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_SORT, str(self.fruits))

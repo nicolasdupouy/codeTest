@@ -79,3 +79,14 @@ class SortedDictionary:
 
         self._keys = sortedKeys
         self._values = sortedValues
+
+    def reverse(self):
+        keys = []
+        values = []
+
+        for key, value in self.items():
+            keys.insert(0, key)
+            values.insert(0, value)
+
+        self._keys = keys
+        self._values = values

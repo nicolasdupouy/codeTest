@@ -36,6 +36,9 @@ class SortedDictionary:
     def __contains__(self, item):
         return item in self._keys
 
+    def __iter__(self):
+        return iter(self._keys)
+
 
     # --- Special methods : arithmetic ---
     def __add__(self, other):

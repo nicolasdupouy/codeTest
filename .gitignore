@@ -20,7 +20,6 @@ build/
 target/
 
 # - [XCode]
-*_.1
 *.1
 *.xcodeproj
 
@@ -52,3 +51,6 @@ Cargo.lock
 # - [Node.JS]
 node_modules/
 
+# - [Python]
+__pycache__/
+*.pyc

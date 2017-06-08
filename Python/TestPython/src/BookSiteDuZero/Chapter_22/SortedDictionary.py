@@ -21,6 +21,8 @@ class SortedDictionary:
             self._keys.append(key)
             self._values.append(value)
 
+    def __delitem__(self, key):
+        print("")
 
     # --- Special methods : representation ---
     def __repr__(self):

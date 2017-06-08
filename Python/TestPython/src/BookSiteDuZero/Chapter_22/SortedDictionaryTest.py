@@ -40,6 +40,10 @@ class SortedDictionaryTest(unittest.TestCase):
 
         del self.fruits["banana"]
 
+    def test_unexisting_value_deletion_should_fail(self):
+        with self.assertRaises(KeyError):
+            del self.fruits["banana"]
+
 
     # --- Special methods : representation ---
     def test_dictionary_should_be_represented(self):

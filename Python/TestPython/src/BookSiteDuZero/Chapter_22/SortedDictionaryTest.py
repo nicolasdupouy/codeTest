@@ -50,6 +50,10 @@ class SortedDictionaryTest(unittest.TestCase):
         with self.assertRaises(KeyError):
             del self.fruits["banana"]
 
+    # __contains__
+    def test_dictionary_should_contain_value(self):
+        self.assertTrue('carot' in self.vegetables)
+
 
     # --- Special methods : arithmetic ---
     # __add__

@@ -33,6 +33,9 @@ class SortedDictionary:
             del self._keys[index]
             del self._values[index]
 
+    def __contains__(self, item):
+        return item in self._keys
+
 
     # --- Special methods : arithmetic ---
     def __add__(self, other):
@@ -44,7 +47,6 @@ class SortedDictionary:
             newSortedDictionary[key] = value
 
         return newSortedDictionary
-
 
     def items(self):
         for i, key in enumerate(self._keys):

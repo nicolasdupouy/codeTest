@@ -8,6 +8,8 @@ class SortedDictionaryTest(unittest.TestCase):
 
     FRUITS_REPRESENTATION_AFTER_DEFINITION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}"
     FRUITS_REPRESENTATION_AFTER_SORT = "{'apple': 52, 'melon': 15, 'peach': 34, 'strawberry': 128}"
+    VEGETABLES_REPRESENTATION = "{'carot': 26, 'bean': 48}"
+    FRUITS_AND_VEGETABLES_REPRESENTATION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15, 'carot': 26, 'bean': 48}"
 
     def setUp(self):
         self.fruits = SortedDictionary()
@@ -46,6 +48,12 @@ class SortedDictionaryTest(unittest.TestCase):
     def test_unexisting_value_deletion_should_fail(self):
         with self.assertRaises(KeyError):
             del self.fruits["banana"]
+
+
+    # --- Special methods : arithmetic ---
+    # __add__
+    def test_dictionary_should_be_additionable(self):
+        self.assertEqual(SortedDictionaryTest.FRUITS_AND_VEGETABLES_REPRESENTATION, repr(self.fruits + self.vegetables))
 
 
     # --- Special methods : representation ---

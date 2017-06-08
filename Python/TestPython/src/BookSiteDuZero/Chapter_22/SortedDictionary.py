@@ -34,6 +34,24 @@ class SortedDictionary:
             del self._values[index]
 
 
+    # --- Special methods : arithmetic ---
+    def __add__(self, other):
+        newSortedDictionary = SortedDictionary()
+        for key, value in self.items():
+            newSortedDictionary[key] = value
+
+        for key, value in other.items():
+            newSortedDictionary[key] = value
+
+        return newSortedDictionary
+
+
+    def items(self):
+        for i, key in enumerate(self._keys):
+            value = self._values[i]
+            yield (key, value)
+
+
     # --- Special methods : representation ---
     def __repr__(self):
         numberOfElements = len(self._keys)

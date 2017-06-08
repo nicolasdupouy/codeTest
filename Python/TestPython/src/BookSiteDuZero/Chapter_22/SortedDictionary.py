@@ -22,7 +22,9 @@ class SortedDictionary:
             self._values.append(value)
 
     def __delitem__(self, key):
-        print("")
+        index = self._keys.index(key)
+        del self._keys[index]
+        del self._values[index]
 
     # --- Special methods : representation ---
     def __repr__(self):

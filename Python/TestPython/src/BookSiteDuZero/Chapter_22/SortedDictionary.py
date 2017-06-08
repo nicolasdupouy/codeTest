@@ -22,9 +22,13 @@ class SortedDictionary:
             self._values.append(value)
 
     def __delitem__(self, key):
-        index = self._keys.index(key)
-        del self._keys[index]
-        del self._values[index]
+        if key not in self._keys:
+            raise KeyError("Unavailable key {0}".format(key))
+        else:
+            index = self._keys.index(key)
+            del self._keys[index]
+            del self._values[index]
+
 
     # --- Special methods : representation ---
     def __repr__(self):

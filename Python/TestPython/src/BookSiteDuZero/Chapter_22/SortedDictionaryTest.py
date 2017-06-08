@@ -18,12 +18,20 @@ class SortedDictionaryTest(unittest.TestCase):
 
 
     # --- Special methods : accessibility ---
+    # __getitem__
     def test_value_should_be_accessible_by_key(self):
         appleValue = self.fruits["apple"]
         self.assertEqual(52, appleValue)
 
         strawberryValue = self.fruits["strawberry"]
         self.assertEqual(128, strawberryValue)
+
+    # __setitem__
+    def test_value_should_be_modifiable_by_key(self):
+        self.fruits["melon"] = 10
+        self.assertEqual(10, self.fruits["melon"])
+
+        self.fruits["melon"] = 15
 
 
     # --- Special methods : representation ---

@@ -9,6 +9,7 @@ class SortedDictionaryTest(unittest.TestCase):
     FRUITS_REPRESENTATION_AFTER_DEFINITION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15}"
     FRUITS_REPRESENTATION_AFTER_SORT = "{'apple': 52, 'melon': 15, 'peach': 34, 'strawberry': 128}"
     VEGETABLES_KEYS_ONE_LINER = "carot/bean/"
+    VEGETABLE_KEYS_LIST = ['carot', 'bean']
     VEGETABLES_REPRESENTATION_AFTER_REVERSE = "{'bean': 48, 'carot': 26}"
     FRUITS_AND_VEGETABLES_REPRESENTATION = "{'apple': 52, 'peach': 34, 'strawberry': 128, 'melon': 15, 'carot': 26, 'bean': 48}"
 
@@ -84,10 +85,14 @@ class SortedDictionaryTest(unittest.TestCase):
         self.fruits.sort()
         self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_SORT, str(self.fruits))
 
-    def test_disctionary_should_be_reversible(self):
+    def test_dictionary_should_be_reversible(self):
         self.vegetables.reverse()
         self.assertEqual(SortedDictionaryTest.VEGETABLES_REPRESENTATION_AFTER_REVERSE, repr(self.vegetables))
         self.vegetables.reverse()
+
+    def test_keys_should_be_available(self):
+        keys = self.vegetables.keys()
+        self.assertEqual(SortedDictionaryTest.VEGETABLE_KEYS_LIST, keys)
 
 if __name__ == '__main__':
     unittest.main()

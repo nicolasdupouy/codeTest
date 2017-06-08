@@ -14,8 +14,12 @@ class SortedDictionary:
             return self._values[index]
 
     def __setitem__(self, key, value):
-        self._keys.append(key)
-        self._values.append(value)
+        if key in self._keys:
+            index = self._keys.index(key)
+            self._values[index] = value
+        else:
+            self._keys.append(key)
+            self._values.append(value)
 
 
     # --- Special methods : representation ---

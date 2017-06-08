@@ -33,6 +33,13 @@ class SortedDictionaryTest(unittest.TestCase):
 
         self.fruits["melon"] = 15
 
+    # __setitem__ (+ __delitem)
+    def test_value_should_be_addable(self):
+        self.fruits["banana"] = 8
+        self.assertEqual(8, self.fruits["banana"])
+
+        del self.fruits["banana"]
+
 
     # --- Special methods : representation ---
     def test_dictionary_should_be_represented(self):

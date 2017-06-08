@@ -98,3 +98,6 @@ class SortedDictionary:
 
     def keys(self):
         return list(self._keys)
+
+    def values(self):
+        return list(self._values)

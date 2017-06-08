@@ -1,8 +1,12 @@
 class SortedDictionary:
 
-    def __init__(self):
+    def __init__(self, **parameters):
         self._keys = []
         self._values = []
+
+        for a,b in enumerate(parameters):
+            self._keys.append(b)
+            self._values.append(parameters[b])
 
 
     # --- Special methods : accessibility ---

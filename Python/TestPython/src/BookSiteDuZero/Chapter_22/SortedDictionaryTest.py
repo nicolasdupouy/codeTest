@@ -16,6 +16,8 @@ class SortedDictionaryTest(unittest.TestCase):
         self.fruits["strawberry"] = 128
         self.fruits["melon"] = 15
 
+        self.vegetables = SortedDictionary(carot = 26, bean = 48)
+
 
     # --- Special methods : accessibility ---
     # __getitem__

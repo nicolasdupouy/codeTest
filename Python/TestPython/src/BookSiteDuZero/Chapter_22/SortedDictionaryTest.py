@@ -33,22 +33,27 @@ class SortedDictionaryTest(unittest.TestCase):
 
         self.fruits["melon"] = 15
 
-    # __setitem__ (+ __delitem)
+    # __setitem__ (+ __delitem__)
     def test_value_should_be_addable(self):
         self.fruits["banana"] = 8
         self.assertEqual(8, self.fruits["banana"])
 
         del self.fruits["banana"]
 
+    # __delitem__
     def test_unexisting_value_deletion_should_fail(self):
         with self.assertRaises(KeyError):
             del self.fruits["banana"]
 
 
     # --- Special methods : representation ---
+    # __repr__
     def test_dictionary_should_be_represented(self):
         self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_DEFINITION, repr(self.fruits))
 
+    # __str__
+    def test_dictionary_should_be_printed_on_terminal(self):
+        self.assertEqual(SortedDictionaryTest.FRUITS_REPRESENTATION_AFTER_DEFINITION, str(self.fruits))
 
     # --- Misc ---
     def test_dictionary_should_be_sorted(self):

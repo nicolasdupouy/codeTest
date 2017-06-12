@@ -28,13 +28,18 @@ server.on(EVENT_REQUEST, (request, response) => {
         if (err) {
             setResponseHeadNotFound(response);
         }
-        var queryParameters = url.parse(request.url, true).query;
-        console.log("Name: " + queryParameters.name)
+
+        let name = getNameFromQueryParams(request);
         setResponseHeadOk(response, data);
     });
 });
 server.listen(8080);
 
+function getNameFromQueryParams(request) {
+    let queryParameters = url.parse(request.url, true).query;
+    let name = queryParameters.name === undefined ? "anonymous" : queryParameters.name;
+    return name;
+}
 
 function setResponseHeadNotFound(response) {
     response.writeHead(HTTP_CODE_NOT_FOUND);

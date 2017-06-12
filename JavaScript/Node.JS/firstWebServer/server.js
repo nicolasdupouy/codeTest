@@ -1,10 +1,29 @@
 let http = require('http');
 let fs = require('fs');
 
+// Event name
+const EVENT_REQUEST = 'request';
+
+// Response
+const RESPONSE_CONTENT_TYPE_KEY = 'Content-Type';
+const RESPONSE_CONTENT_TYPE_VALUE = 'text/html; charset=utf-8';
+
+// HTTP codes
+const HTTP_CODE_OK = 200;
+const HTTP_CODE_NOT_FOUND = 404;
+
+// File
+const FILE_NAME = 'index.html';
+const FILE_NOT_FOUND = "This file doesn't exists";
+
+// Log messages
+const LOG_MESSAGE_REQUEST_RECEIVED = "request received";
+
+
 let server = http.createServer();
-server.on('request', (request, response) => {
-    console.log("request received");
-    fs.readFile('index.html', (err, data) => {
+server.on(EVENT_REQUEST, (request, response) => {
+    console.log(LOG_MESSAGE_REQUEST_RECEIVED);
+    fs.readFile(FILE_NAME, (err, data) => {
         if (err) {
             setResponseHeadNotFound(response);
         }
@@ -15,14 +34,13 @@ server.listen(8080);
 
 
 function setResponseHeadNotFound(response) {
-    response.writeHead(404);
-    response.write("This file doesn't exists");
+    response.writeHead(HTTP_CODE_NOT_FOUND);
+    response.write(FILE_NOT_FOUND);
     response.end();
 }
 
 function setResponseHeadOk(response, data) {
-    response.writeHead(
-        200, 
-        {'Content-Type': 'text/html; charset=utf-8'});
-    response.end(data)
+    response.writeHead(HTTP_CODE_OK, {RESPONSE_CONTENT_TYPE_KEY: RESPONSE_CONTENT_TYPE_VALUE});
+    response.write(data);
+    response.end()
 }

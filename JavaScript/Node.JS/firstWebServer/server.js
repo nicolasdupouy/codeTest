@@ -24,12 +24,13 @@ const LOG_MESSAGE_REQUEST_RECEIVED = "request received";
 let server = http.createServer();
 server.on(EVENT_REQUEST, (request, response) => {
     console.log(LOG_MESSAGE_REQUEST_RECEIVED);
-    fs.readFile(FILE_NAME, (err, data) => {
+    fs.readFile(FILE_NAME, 'utf8', (err, data) => {
         if (err) {
             setResponseHeadNotFound(response);
         }
 
         let name = getNameFromQueryParams(request);
+        data = data.replace('{{name}}', name);
         setResponseHeadOk(response, data);
     });
 });

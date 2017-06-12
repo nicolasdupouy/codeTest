@@ -1,4 +1,5 @@
 let http = require('http');
+let url = require('url');
 let fs = require('fs');
 
 // Event name
@@ -27,6 +28,8 @@ server.on(EVENT_REQUEST, (request, response) => {
         if (err) {
             setResponseHeadNotFound(response);
         }
+        var queryParameters = url.parse(request.url, true).query;
+        console.log("Name: " + queryParameters.name)
         setResponseHeadOk(response, data);
     });
 });

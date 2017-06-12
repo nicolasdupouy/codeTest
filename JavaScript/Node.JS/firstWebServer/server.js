@@ -9,10 +9,14 @@ server.on('request', (request, response) => {
             response.writeHead(404);
             response.end("This file doesn't exists");
         }
-        response.writeHead(200, {
-            'Content-Type': 'text/html; charset=utf-8'
-        });
-        response.end(data);
+        setResponseHeadOk(response, data);
     });
 });
 server.listen(8080);
+
+function setResponseHeadOk(response, data) {
+    response.writeHead(
+        200, 
+        {'Content-Type': 'text/html; charset=utf-8'});
+    response.end(data)
+}

@@ -41,6 +41,6 @@ function setResponseHeadNotFound(response) {
 
 function setResponseHeadOk(response, data) {
     response.writeHead(HTTP_CODE_OK, {RESPONSE_CONTENT_TYPE_KEY: RESPONSE_CONTENT_TYPE_VALUE});
-    response.write(data);
-    response.end()
+    response.end(data);
+    response.end();
 }

@@ -40,4 +40,16 @@ public class LambdaExpressionTest {
         // Then
         Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
     }
+
+    @Test
+    public void sort_list_with_simple_lambda_expression() {
+        // Given
+        List<String> names = Arrays.asList("B", "D", "C", "A");
+
+        // When
+        Collections.sort(names, (a, b) -> a.compareTo(b));
+
+        // Then
+        Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
+    }
 }

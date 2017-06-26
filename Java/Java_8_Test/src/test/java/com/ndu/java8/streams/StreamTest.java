@@ -101,4 +101,16 @@ class StreamTest {
         // Then
         Assertions.assertTrue(noneMatch);
     }
+
+    @Test
+    void should_have_3_starting_by_B() {
+        // When
+        long number = stringCollection
+                .stream()
+                .filter(s -> s.startsWith("b"))
+                .count();
+
+        // Then
+        Assertions.assertEquals(3, number);
+    }
 }

@@ -52,4 +52,16 @@ public class LambdaExpressionTest {
         // Then
         Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
     }
+
+    @Test
+    public void sort_list_with_method_reference() {
+        // Given
+        List<String> names = Arrays.asList("B", "D", "C", "A");
+
+        // When
+        Collections.sort(names, String::compareTo);
+
+        // Then
+        Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
+    }
 }

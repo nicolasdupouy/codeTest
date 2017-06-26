@@ -4,10 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 class StreamTest {
@@ -112,5 +109,36 @@ class StreamTest {
 
         // Then
         Assertions.assertEquals(3, number);
+    }
+
+    @Test
+    void should_reduce_a_strings() {
+        // When
+        Optional<String> stringSortedAndReduced = stringCollection
+                .stream()
+                .filter(s -> s.startsWith("a"))
+                .sorted()
+                .reduce((a, b) -> a + "#" + b);
+
+        // Then
+        if (stringSortedAndReduced.isPresent()) {
+            Assertions.assertEquals("aaa1#aaa2", stringSortedAndReduced.get());
+        }
+        else {
+            Assertions.fail("stream should not be empty");
+        }
+    }
+
+    @Test
+    void should_fail_to_reduce_z_strings() {
+        // When
+        Optional<String> stringSortedAndReduced = stringCollection
+                .stream()
+                .filter(s -> s.startsWith("z"))
+                .sorted()
+                .reduce((a, b) -> a + "#" + b);
+
+        // Then
+        Assertions.assertFalse(stringSortedAndReduced.isPresent());
     }
 }

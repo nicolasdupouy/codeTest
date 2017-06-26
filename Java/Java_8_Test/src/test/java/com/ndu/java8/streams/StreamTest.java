@@ -6,13 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 class StreamTest {
-    
+
     private static List<String> stringCollection;
-    
+
     @BeforeAll
     private static void setUp() {
         // Given
@@ -26,7 +27,7 @@ class StreamTest {
         stringCollection.add("bbb2");
         stringCollection.add("ddd1");
     }
-    
+
     @Test
     void should_filter_strings_beginning_by_a() {
         // When
@@ -52,5 +53,19 @@ class StreamTest {
         // Then
         Assertions.assertEquals(sortedFilteredCollection,
                 Arrays.asList("aaa1", "aaa2"));
+    }
+
+    @Test
+    void should_uppercase_and_reverse_sort() {
+        // When
+        List<String> stringCollectionReversedAndUppercased = stringCollection
+                .stream()
+                .sorted(Comparator.reverseOrder())
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+
+        // Then
+        Assertions.assertEquals(stringCollectionReversedAndUppercased,
+                Arrays.asList("DDD2", "DDD1", "CCC", "BBB3", "BBB2", "BBB1", "AAA2", "AAA1"));
     }
 }

@@ -68,4 +68,37 @@ class StreamTest {
         Assertions.assertEquals(stringCollectionReversedAndUppercased,
                 Arrays.asList("DDD2", "DDD1", "CCC", "BBB3", "BBB2", "BBB1", "AAA2", "AAA1"));
     }
+
+    @Test
+    void should_match_one_a() {
+        // When
+        boolean anyMatch = stringCollection
+                .stream()
+                .anyMatch(s -> s.startsWith("a"));
+
+        // Then
+        Assertions.assertTrue(anyMatch);
+    }
+
+    @Test
+    void should_match_all_a() {
+        // When
+        boolean allMatch = stringCollection
+                .stream()
+                .allMatch(s -> s.startsWith("a"));
+
+        // Then
+        Assertions.assertFalse(allMatch);
+    }
+
+    @Test
+    void should_match_none_a() {
+        // When
+        boolean noneMatch = stringCollection
+                .stream()
+                .noneMatch(s -> s.startsWith("z"));
+
+        // Then
+        Assertions.assertTrue(noneMatch);
+    }
 }

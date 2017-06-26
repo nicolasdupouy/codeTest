@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class StreamTest {
 
@@ -123,8 +124,7 @@ class StreamTest {
         // Then
         if (stringSortedAndReduced.isPresent()) {
             Assertions.assertEquals("aaa1#aaa2", stringSortedAndReduced.get());
-        }
-        else {
+        } else {
             Assertions.fail("stream should not be empty");
         }
     }
@@ -140,5 +140,29 @@ class StreamTest {
 
         // Then
         Assertions.assertFalse(stringSortedAndReduced.isPresent());
+    }
+
+    @Test
+    void should_get_first_element_from_list() {
+        // When
+        String first = Arrays.asList("a1", "a2", "a3")
+                .stream()
+                .findFirst()
+                .get();
+
+        // Then
+        Assertions.assertEquals("a1", first);
+    }
+
+    @Test
+    void should_get_first_element_from_objects_references() {
+        // When
+        String first = Stream.of("a1", "a2", "a3")
+                .findFirst()
+                .get();
+
+        // Then
+        Assertions.assertEquals("a1", first);
+
     }
 }

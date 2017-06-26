@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
 	// Initialization
-	private static final int max = 1000000;
+	private static final int max = 5000000;
 	private static final List<String> values = new ArrayList<>(max);
 	static {
 		for (int i = 0; i < max; i++) {
@@ -23,29 +23,29 @@ public class Main {
 		parallelStream();
 	}
 
-	public static void sequentialStream() {
+	private static void sequentialStream() {
 		long t0 = System.nanoTime();
 
-		long count = values.stream().sorted().count();
+		long count = values.stream().count();
 		System.out.println(count);
 
 		long t1 = System.nanoTime();
 
 		long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-		System.out.println(String.format("sequential sort took: %d ms", millis));
+		System.out.println(String.format("Sequential sort took: %d ms", millis));
 
 	}
 
-	public static void parallelStream() {
+	private static void parallelStream() {
 		long t0 = System.nanoTime();
 
-		long count = values.parallelStream().sorted().count();
+		long count = values.parallelStream().count();
 		System.out.println(count);
 
 		long t1 = System.nanoTime();
 
 		long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-		System.out.println(String.format("sequential sort took: %d ms", millis));
+		System.out.println(String.format("Parallel sort took: %d ms", millis));
 
 	}
 

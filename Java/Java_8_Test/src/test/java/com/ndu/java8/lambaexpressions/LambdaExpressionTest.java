@@ -26,4 +26,18 @@ public class LambdaExpressionTest {
         // Then
         Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
     }
+
+    @Test
+    public void sort_list_with_verbose_lambda_expression() {
+        // Given
+        List<String> names = Arrays.asList("B", "D", "C", "A");
+
+        // When
+        Collections.sort(names, (String a, String b) -> {
+            return a.compareTo(b);
+        });
+
+        // Then
+        Assertions.assertEquals(names, Arrays.asList("A", "B", "C", "D"));
+    }
 }

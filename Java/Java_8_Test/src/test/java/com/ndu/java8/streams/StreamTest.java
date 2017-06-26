@@ -32,11 +32,25 @@ class StreamTest {
         // When
         List<String> stringCollectionBeginningByA = stringCollection
                 .stream()
-                .filter((s) -> s.startsWith("a"))
+                .filter(s -> s.startsWith("a"))
                 .collect(Collectors.toList());
 
         // Then
         Assertions.assertEquals(stringCollectionBeginningByA,
                 Arrays.asList("aaa2", "aaa1"));
+    }
+
+    @Test
+    void should_filter_sorted_strings_beginning_by_a() {
+        // When
+        List<String> sortedFilteredCollection = stringCollection
+                .stream()
+                .filter(s -> s.startsWith("a"))
+                .sorted()
+                .collect(Collectors.toList());
+
+        // Then
+        Assertions.assertEquals(sortedFilteredCollection,
+                Arrays.asList("aaa1", "aaa2"));
     }
 }

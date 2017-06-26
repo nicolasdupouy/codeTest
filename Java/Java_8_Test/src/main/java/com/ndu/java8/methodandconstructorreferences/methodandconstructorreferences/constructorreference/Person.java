@@ -1,4 +1,4 @@
-package com.ndu.java8.interfaces.methodandconstructorreferences.constructorreference;
+package com.ndu.java8.methodandconstructorreferences.methodandconstructorreferences.constructorreference;
 
 public class Person {
     private String firstName;

@@ -1,4 +1,4 @@
-package com.ndu.java8.interfaces.methodandconstructorreferences.methodreference;
+package com.ndu.java8.methodandconstructorreferences.methodandconstructorreferences.methodreference;
 
 public class StartsWithMethodClass {
 

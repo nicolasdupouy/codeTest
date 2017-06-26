@@ -1,7 +1,7 @@
 package com.ndu.java8.methodandconstructorreferences.constructorreference;
 
-import com.ndu.java8.interfaces.methodandconstructorreferences.constructorreference.Person;
-import com.ndu.java8.interfaces.methodandconstructorreferences.constructorreference.PersonFactory;
+import com.ndu.java8.methodandconstructorreferences.methodandconstructorreferences.constructorreference.Person;
+import com.ndu.java8.methodandconstructorreferences.methodandconstructorreferences.constructorreference.PersonFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

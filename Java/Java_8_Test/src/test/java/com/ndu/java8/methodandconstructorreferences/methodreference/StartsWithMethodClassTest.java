@@ -1,7 +1,7 @@
 package com.ndu.java8.methodandconstructorreferences.methodreference;
 
 import com.ndu.java8.functionalInterfaces.Converter;
-import com.ndu.java8.interfaces.methodandconstructorreferences.methodreference.StartsWithMethodClass;
+import com.ndu.java8.methodandconstructorreferences.methodandconstructorreferences.methodreference.StartsWithMethodClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

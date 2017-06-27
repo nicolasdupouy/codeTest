@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 class StreamTest {
@@ -164,5 +165,22 @@ class StreamTest {
         // Then
         Assertions.assertEquals("a1", first);
 
+    }
+
+    @Test
+    void should_create_a_stream_of_int() {
+        // Given
+        List<Integer> integersWithRange = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+
+        // When
+        IntStream.range(1, 4)
+                .forEach(integersWithRange::add);
+
+        // Then
+        Assertions.assertEquals(integers, integersWithRange);
     }
 }

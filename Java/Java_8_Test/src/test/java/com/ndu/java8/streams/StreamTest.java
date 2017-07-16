@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -205,5 +206,31 @@ class StreamTest {
 
         // Then
         Assertions.assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void should_use_supplier_to_terminate_stream_more_than_once() {
+        // Given
+        Stream<String> streamTerminableOneTime =
+                Stream.of("d2", "a2", "b1", "b3", "c")
+                        .filter(s -> s.startsWith("a"));
+
+        Supplier<Stream<String>> streamSupplier =
+                () -> Stream.of("d2", "a2", "b1", "b3", "c")
+                        .filter(s -> s.startsWith("a"));
+
+        // When
+        boolean streamAnyMatch = streamTerminableOneTime.anyMatch(s -> true);
+
+        boolean streamSupplierAnyMatch = streamSupplier.get().anyMatch(s -> true);
+        boolean streamSupplierNoneMatch = streamSupplier.get().noneMatch(s -> true);
+
+        // Then
+        Assertions.assertTrue(streamAnyMatch);
+        Assertions.assertThrows(IllegalStateException.class,
+                () -> streamTerminableOneTime.noneMatch(s -> true));
+
+        Assertions.assertTrue(streamSupplierAnyMatch);
+        Assertions.assertFalse(streamSupplierNoneMatch);
     }
 }

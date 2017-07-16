@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class StreamAdvancedTest {
@@ -48,7 +46,7 @@ public class StreamAdvancedTest {
                 .collect(Collectors.joining(" and ", "In France ", " are of legal age."));
 
         // Then
-       Assertions.assertEquals(expectedPhrase, phrase);
+        Assertions.assertEquals(expectedPhrase, phrase);
     }
 
     @Test
@@ -69,5 +67,23 @@ public class StreamAdvancedTest {
 
         // Then
         Assertions.assertEquals(expectedPersonsMapped, personsMapped);
+    }
+
+    @Test
+    public void collector_should_be_definable() {
+        // Given
+        Collector<Person, StringJoiner, String> personNameCollector =
+                Collector.of(
+                        () -> new StringJoiner(" | "),                  // Supplier
+                        (p1, p2) -> p1.add(p2.getFirstName().toUpperCase()),    // Accumulator
+                        (p1, p2) -> p1.merge(p2),                               // Combiner
+                        StringJoiner::toString);                                // Finisher
+
+        // When
+        String names = persons.stream()
+                .collect(personNameCollector);
+
+        // Then
+        Assertions.assertEquals("MAX | PETER | PAMELA | DAVID", names);
     }
 }

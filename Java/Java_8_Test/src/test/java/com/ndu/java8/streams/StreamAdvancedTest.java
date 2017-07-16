@@ -50,4 +50,24 @@ public class StreamAdvancedTest {
         // Then
        Assertions.assertEquals(expectedPhrase, phrase);
     }
+
+    @Test
+    public void collect_into_map() {
+        // Given
+        Map<Integer, String> expectedPersonsMapped = new HashMap();
+        expectedPersonsMapped.put(12, david.getFirstName());
+        expectedPersonsMapped.put(18, max.getFirstName());
+        expectedPersonsMapped.put(23, peter.getFirstName() + ";" + pamela.getFirstName());
+
+        // When
+        Map<Integer, String> personsMapped = persons.stream()
+                .collect(Collectors.toMap(
+                        p -> p.getAge(),
+                        p -> p.getFirstName(),
+                        (name1, name2) -> name1 + ";" + name2
+                ));
+
+        // Then
+        Assertions.assertEquals(expectedPersonsMapped, personsMapped);
+    }
 }

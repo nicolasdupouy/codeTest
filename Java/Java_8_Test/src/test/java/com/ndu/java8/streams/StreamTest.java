@@ -183,4 +183,27 @@ class StreamTest {
         // Then
         Assertions.assertEquals(integers, integersWithRange);
     }
+
+    @Test
+    void operations_are_done_vertically() {
+        // Given
+        List<String> expectedResult = Arrays.asList("map: d2", "anyMatch: D2", "map: a2", "anyMatch: A2");
+
+        // When
+        List<String> result = new ArrayList<>();
+        Stream.of("d2", "a2", "b1", "b3", "c")
+                .map(s -> {
+                    System.out.println("map: " + s);
+                    result.add("map: " + s);
+                    return s.toUpperCase();
+                })
+                .anyMatch(s -> {
+                    System.out.println("anyMatch: " + s);
+                    result.add("anyMatch: " + s);
+                    return s.startsWith("A");
+                });
+
+        // Then
+        Assertions.assertEquals(expectedResult, result);
+    }
 }

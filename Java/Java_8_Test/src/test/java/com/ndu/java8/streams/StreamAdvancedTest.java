@@ -34,4 +34,20 @@ public class StreamAdvancedTest {
         // Then
         Assertions.assertEquals(expectedGroups, personsByAge);
     }
+
+    @Test
+    public void should_join_persons() {
+        // Given
+        String expectedPhrase = "In France Max and Peter and Pamela are of legal age.";
+
+        // When
+        String phrase = persons
+                .stream()
+                .filter(p -> p.getAge() >= 18)
+                .map(p -> p.getFirstName())
+                .collect(Collectors.joining(" and ", "In France ", " are of legal age."));
+
+        // Then
+       Assertions.assertEquals(expectedPhrase, phrase);
+    }
 }

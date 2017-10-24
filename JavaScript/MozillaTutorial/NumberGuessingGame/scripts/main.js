@@ -1,6 +1,7 @@
 const MAX_GUEST_COUNT = 10;
 
 var randomNumber = Math.floor(Math.random() * 100) + 1;
+console.log(randomNumber);
 
 var guessField = document.querySelector('.guessField');
 var guessSubmit = document.querySelector('.guessSubmit');
@@ -51,6 +52,16 @@ function fillGuesses(userGuess) {
 }
 
 function finishGame() {
+    guessField.disabled = true;
+    guessSubmit.disabled = true;
+    
+    resetButton = document.createElement('button');
+    resetButton.textContent = 'Start new game';
+    document.body.appendChild(resetButton);
+    resetButton.addEventListener('click', resetGame);
+}
+
+function resetGame() {
     
 }
 

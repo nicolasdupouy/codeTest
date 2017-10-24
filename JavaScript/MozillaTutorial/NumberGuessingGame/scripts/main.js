@@ -12,17 +12,16 @@ var resetButton;
 
 function checkGuess() {
     let userGuess = Number(guessField.value);
-    fillLastResults(userGuess);
-    console.log('lastResult = ' + lastResult.textContent);
+    fillGuesses(userGuess);
     
     guessCount++;
 }
 
-function fillLastResults(userGuess) {
+function fillGuesses(userGuess) {
     if (guessCount === 1) {
-        lastResult.textContent = 'Previous propositions :';
+        guesses.textContent = 'Previous propositions :';
     }
-    lastResult.textContent += ' ' + userGuess;
+    guesses.textContent += ' ' + userGuess;
 }
 
 guessSubmit.addEventListener('click', checkGuess);

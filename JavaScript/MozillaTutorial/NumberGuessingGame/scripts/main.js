@@ -1,7 +1,7 @@
 const MAX_GUEST_COUNT = 10;
 
-var randomNumber = Math.floor(Math.random() * 100) + 1;
-console.log(randomNumber);
+var randomNumber;
+setRandom();
 
 var guessField = document.querySelector('.guessField');
 var guessSubmit = document.querySelector('.guessSubmit');
@@ -12,6 +12,11 @@ var lowOrHi = document.querySelector('.lowOrHi');
 
 var guessCount = 1;
 var resetButton;
+
+function setRandom() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    console.log(randomNumber);
+}
 
 function checkGuess() {
     let userGuess = Number(guessField.value);
@@ -62,7 +67,21 @@ function finishGame() {
 }
 
 function resetGame() {
+    guessField.disabled = false;
+    guessField.value = '';
+    guessField.focus();
     
+    guessSubmit.disabled = false;
+    guessCount = 1;
+    
+    var resultParameters = document.querySelectorAll('.resultParas p');
+    for(var i=0; i<resultParameters.length; i++) {
+        resultParameters[i].textContent = '';
+    }
+    lastResult.style.backgroundColor = 'white';
+
+    document.body.removeChild(resetButton);
+    setRandom();
 }
 
 guessSubmit.addEventListener('click', checkGuess);

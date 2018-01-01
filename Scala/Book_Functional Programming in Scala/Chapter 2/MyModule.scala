@@ -19,24 +19,14 @@ object MyModule {
     iteration(n)
   }
 
-  private def formatAbs(x: Int) = {
-    val msg = "The absolute value of %d is %d"
-    msg.format(x, abs(x))
-  }
-
-  private def formatFactorial(x: Int): String = {
-    val msg = "The factorial of %d is %d"
-    msg.format(x, factorial(x))
-  }
-
-  private def formatFibonacci(n: Int): String = {
-    val message = "The value of the %d Fibonacci number is %d"
-    message.format(n, fibonacci(n))
+  private def formatResult(name: String, x: Int, f: Int => Int): String = {
+    val msg = "The %s value of %d is %d"
+    msg.format(name, x, f(x))
   }
 
   def main(args: Array[String]): Unit = {
-    println(formatAbs(-42))
-    println(formatFactorial(7))
-    println(formatFibonacci(6))
+    println(formatResult("absolute", -42, abs))
+    println(formatResult("factorial", 7, factorial))
+    println(formatResult("Fibonacci", 6, fibonacci))
   }
 }

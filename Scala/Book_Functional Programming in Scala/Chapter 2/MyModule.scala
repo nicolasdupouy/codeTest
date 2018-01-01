@@ -5,6 +5,7 @@ object MyModule {
     else n
 
   def factorial(n: Int): Int = {
+    @annotation.tailrec
     def iter(n: Int, acc: Int): Int =
       if (n <= 0) acc
       else iter(n - 1, n * acc)

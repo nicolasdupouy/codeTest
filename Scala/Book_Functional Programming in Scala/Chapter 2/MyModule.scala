@@ -15,10 +15,11 @@ object MyModule {
   }
 
   private def fibonacci(n: Int): Int = {
-    def loop(n: Int): Int =
-      if (n <= 1) n
-      else fibonacci(n-1) + fibonacci(n-2)
-    loop(n)
+    @tailrec
+    def loop(x: Int, first: Int, second: Int): Int =
+      if (x == n) first
+      else loop(x+1, second, first+second)
+    loop(0, 0, 1)
   }
 
   private def formatResult(name: String, x: Int, f: Int => Int): String = {
@@ -29,6 +30,9 @@ object MyModule {
   def main(args: Array[String]): Unit = {
     println(formatResult("absolute", -42, abs))
     println(formatResult("factorial", 7, factorial))
+    println(formatResult("Fibonacci", 0, fibonacci))
+    println(formatResult("Fibonacci", 1, fibonacci))
     println(formatResult("Fibonacci", 6, fibonacci))
+    println(formatResult("Fibonacci", 13, fibonacci))
   }
 }

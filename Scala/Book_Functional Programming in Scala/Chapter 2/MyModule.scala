@@ -1,22 +1,24 @@
+import scala.annotation.tailrec
+
 object MyModule {
   def abs(n: Int): Int =
     if (n < 0) -n
     else n
 
   def factorial(n: Int): Int = {
-    @annotation.tailrec
-    def iter(n: Int, acc: Int): Int =
+    @tailrec
+    def loop(n: Int, acc: Int): Int =
       if (n <= 0) acc
-      else iter(n - 1, n * acc)
+      else loop(n - 1, n * acc)
 
-    iter(n, 1)
+    loop(n, 1)
   }
 
   private def fibonacci(n: Int): Int = {
-    def iteration(n: Int): Int =
+    def loop(n: Int): Int =
       if (n <= 1) n
       else fibonacci(n-1) + fibonacci(n-2)
-    iteration(n)
+    loop(n)
   }
 
   private def formatResult(name: String, x: Int, f: Int => Int): String = {

@@ -18,7 +18,8 @@ object MyModule {
     @tailrec
     def loop(x: Int, first: Int, second: Int): Int =
       if (x == n) first
-      else loop(x+1, second, first+second)
+      else loop(x + 1, second, first + second)
+
     loop(0, 0, 1)
   }
 

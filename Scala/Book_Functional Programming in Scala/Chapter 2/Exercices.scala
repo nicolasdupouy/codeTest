@@ -20,6 +20,8 @@ object Exercices {
     println(formatResult(Array("A", "B", "C"), (a: String, b: String) => a < b))
     println(formatResult(Array("A", "D", "C", "B"), (a: String, b: String) => a > b))
 
+    println(formatResult(Array(), (a: Int, b: Int) => a < b))
+    println(formatResult(Array(1), (a: Int, b: Int) => a < b))
     println(formatResult(Array(1, 2, 3), (a: Int, b: Int) => a < b))
     println(formatResult(Array(1, 4, 2, 3), (a: Int, b: Int) => a > b))
     println(formatResult(Array(4, 3, 2, 1, 0), (a: Int, b: Int) => a > b))

@@ -11,6 +11,10 @@ object Exercices {
     loop(1)
   }
 
+  private def curry[A, B, C](f: (A, B) => C): A => (B => C) = {
+    a => (b => f(a, b))
+  }
+
   private def formatResult[T](as: Array[T], f: (T, T) => Boolean): String = {
     val message = "is sorted: %b"
     message.format(isSorted(as, f))

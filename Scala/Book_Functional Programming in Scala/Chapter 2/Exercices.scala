@@ -11,17 +11,18 @@ object Exercices {
     loop(1)
   }
 
+
+  private def formatResult[T](as: Array[T], f: (T, T) => Boolean): String = {
+    val message = "is sorted: %b"
+    message.format(isSorted(as, f))
+  }
+
   private def curry[A, B, C](f: (A, B) => C): A => (B => C) = {
     a => b => f(a, b)
   }
 
   private def uncurry[A, B, C](f: A => B => C): (A, B) => C = {
     (a, b) => f(a)(b)
-  }
-
-  private def formatResult[T](as: Array[T], f: (T, T) => Boolean): String = {
-    val message = "is sorted: %b"
-    message.format(isSorted(as, f))
   }
 
   def main(args: Array[String]): Unit = {

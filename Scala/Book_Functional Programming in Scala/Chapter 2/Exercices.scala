@@ -29,5 +29,17 @@ object Exercices {
     println(formatResult(Array(1, 2, 3), (a: Int, b: Int) => a < b))
     println(formatResult(Array(1, 4, 2, 3), (a: Int, b: Int) => a > b))
     println(formatResult(Array(4, 3, 2, 1, 0), (a: Int, b: Int) => a > b))
+
+    def add(a: Int, b: Int): Int = a + b
+    def addCurry = curry(add)
+    def addCurried = (add _).curried
+
+    def addFour = addCurry(4)
+    def addFive = addCurried(5)
+
+    val a = addFive(5)
+    val b = addFour(10)
+
+    println("add 5 to 5 = " + a + " / add 4 to 10 = " + b)
   }
 }

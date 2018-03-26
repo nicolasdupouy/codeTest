@@ -25,6 +25,10 @@ object Exercices {
     (a, b) => f(a)(b)
   }
 
+  private def compose[A, B, C](f: B => C, g: A => B): A => C = {
+    a => f(g(a))
+  }
+
   def main(args: Array[String]): Unit = {
     println(formatResult(Array("A", "B", "C"), (a: String, b: String) => a < b))
     println(formatResult(Array("A", "D", "C", "B"), (a: String, b: String) => a > b))
@@ -42,10 +46,8 @@ object Exercices {
 
     def addFour = addCurry(4)
     def addFive = addCurried(5)
-
     val a = addFive(5)
     val b = addFour(10)
-
     println("add 5 to 5 = " + a + " / add 4 to 10 = " + b)
 
     // Test uncurry
@@ -53,8 +55,25 @@ object Exercices {
     def addUncurried = uncurry(addCurried)
     val c = addUncurry(1, 2)
     val d = addUncurried(7, 8)
+    println("add 1 to 2 = " + c + " / add 7 to 8 = " + d)
 
-
-    println("add 1 to 2 = " + c + "add 7 to 8 = " + d)
+    // Test compose
+    def convertStringToIntAndAdd9(s: String):Int = {
+      s.toInt + 9
+    }
+    def convertIntToOptionAndAdd5(i: Int): Option[String] = {
+      try {
+        Some((i+5).toString)
+      }
+      catch {
+        case e: Exception => None
+      }
+    }
+    def composeResult = compose(convertIntToOptionAndAdd5, convertStringToIntAndAdd9)
+    val optionResult = composeResult("33")
+    optionResult match {
+      case Some(name) => println("compose result (47 expected) = " + name)
+      case None => println("compose failed !")
+    }
   }
 }

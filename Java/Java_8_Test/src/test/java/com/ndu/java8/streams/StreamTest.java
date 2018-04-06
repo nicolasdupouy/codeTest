@@ -5,7 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 class StreamTest {
 
@@ -123,8 +126,7 @@ class StreamTest {
         // Then
         if (stringSortedAndReduced.isPresent()) {
             Assertions.assertEquals("aaa1#aaa2", stringSortedAndReduced.get());
-        }
-        else {
+        } else {
             Assertions.fail("stream should not be empty");
         }
     }
@@ -140,5 +142,95 @@ class StreamTest {
 
         // Then
         Assertions.assertFalse(stringSortedAndReduced.isPresent());
+    }
+
+    @Test
+    void should_get_first_element_from_list() {
+        // When
+        String first = Arrays.asList("a1", "a2", "a3")
+                .stream()
+                .findFirst()
+                .get();
+
+        // Then
+        Assertions.assertEquals("a1", first);
+    }
+
+    @Test
+    void should_get_first_element_from_objects_references() {
+        // When
+        String first = Stream.of("a1", "a2", "a3")
+                .findFirst()
+                .get();
+
+        // Then
+        Assertions.assertEquals("a1", first);
+
+    }
+
+    @Test
+    void should_create_a_stream_of_int() {
+        // Given
+        List<Integer> integersWithRange = new ArrayList<>();
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+
+        // When
+        IntStream.range(1, 4)
+                .forEach(integersWithRange::add);
+
+        // Then
+        Assertions.assertEquals(integers, integersWithRange);
+    }
+
+    @Test
+    void operations_are_done_vertically() {
+        // Given
+        List<String> expectedResult = Arrays.asList("map: d2", "anyMatch: D2", "map: a2", "anyMatch: A2");
+
+        // When
+        List<String> result = new ArrayList<>();
+        Stream.of("d2", "a2", "b1", "b3", "c")
+                .map(s -> {
+                    System.out.println("map: " + s);
+                    result.add("map: " + s);
+                    return s.toUpperCase();
+                })
+                .anyMatch(s -> {
+                    System.out.println("anyMatch: " + s);
+                    result.add("anyMatch: " + s);
+                    return s.startsWith("A");
+                });
+
+        // Then
+        Assertions.assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void should_use_supplier_to_terminate_stream_more_than_once() {
+        // Given
+        Stream<String> streamTerminableOneTime =
+                Stream.of("d2", "a2", "b1", "b3", "c")
+                        .filter(s -> s.startsWith("a"));
+
+        Supplier<Stream<String>> streamSupplier =
+                () -> Stream.of("d2", "a2", "b1", "b3", "c")
+                        .filter(s -> s.startsWith("a"));
+
+        // When
+        boolean streamAnyMatch = streamTerminableOneTime.anyMatch(s -> true);
+
+        boolean streamSupplierAnyMatch = streamSupplier.get().anyMatch(s -> true);
+        boolean streamSupplierNoneMatch = streamSupplier.get().noneMatch(s -> true);
+
+        // Then
+        Assertions.assertTrue(streamAnyMatch);
+        Assertions.assertThrows(IllegalStateException.class,
+                () -> streamTerminableOneTime.noneMatch(s -> true));
+
+        Assertions.assertTrue(streamSupplierAnyMatch);
+        Assertions.assertFalse(streamSupplierNoneMatch);
     }
 }

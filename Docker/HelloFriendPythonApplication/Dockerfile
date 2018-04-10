@@ -14,7 +14,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.text
 EXPOSE 80
 
 # Define environment variable
-ENV NAME World
+ENV NAME Friend
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]

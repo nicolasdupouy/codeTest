@@ -1,1 +1,1 @@
-var professor1 = new Professeur('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing'], ['Math', 'Sport', 'Development']);
+var professor1 = new Professeur('Tammi', 'Smith', 17, 'femelle', ['music', 'skiing', 'kickboxing'], ['Math', 'Sport', 'Development']);

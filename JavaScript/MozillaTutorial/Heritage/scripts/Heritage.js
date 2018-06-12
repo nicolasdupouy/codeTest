@@ -14,6 +14,8 @@ function Professeur(prenom, nom, age, genre, interets, matiere) {
   
     this.matiere = matiere;
   }
+Professeur.prototype = Object.create(Personne.prototype);
+Professeur.prototype.constructor = Professeur; 
 
 Professeur.prototype.saluer = function() {
   var prefix;

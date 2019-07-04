@@ -29,7 +29,14 @@
     > docker swarm init
     > docker stack deploy -c docker-compose-services.yml getstartedlab
 
-If necessary remove the VirtualBox network interface *vboxnet0*: `VBoxManage hostonlyif remove vboxnet0`
+#### Issue with multiple network interfaces
+When launching the local swarm, you may encounter the following issue:
+> Error response from daemon: could not choose an IP address to advertise since this system has multiple addresses on different interfaces (192.168.50.202 on enp8s0 and 192.168.99.1 on vboxnet0) - specify one with --advertise-addr
+
+You may:
+* Remove the problematic interface. 
+In my case the *vboxnet0* VirtualBox network interface : `VBoxManage hostonlyif remove vboxnet0`.
+* Specify the interface to use: `docker swarm init --advertise-addr enp8s0`.
 
 ### Test
 Use `http://127.0.0.1:4000/` to connect with a browser or `curl -4 http://localhost:4000` at the command line.

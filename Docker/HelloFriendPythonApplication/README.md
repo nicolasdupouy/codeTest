@@ -104,9 +104,21 @@ The swarm leader is now active
 
 ### Deploy
 
+    > docker stack deploy -c docker-compose.yml clusterStack
 
+Use the same command to redeploy changes.
 
+### Test
+The services are available on the VM of the cluster. myvm1 (192.168.99.100) and myvm2 (192.168.99.101) in the previous exemple.
+
+### Undeploy
+    > docker stack rm clusterStack
+
+### Unset the shell variable settings
+    > eval $(docker-machine env -u)
 
 ### Leave the swarm
     > docker-machine ssh myvm2 "docker swarm leave"
     > docker-machine ssh myvm1 "docker swarm leave --force"`
+    > docker-machine stop myvm1
+    > docker-machine stop myvm2

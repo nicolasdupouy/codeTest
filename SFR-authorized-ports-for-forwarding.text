@@ -1,0 +1,22 @@
+https://communaute.red-by-sfr.fr/t5/Box-d%C3%A9codeur-TV/Acc%C3%A8s-%C3%A0-distance-impossible-viaa-modem-NB6/td-p/319642
+
+Les plages et ports autorisés sont :
+
+Les ports :
+
+- 67 en protocole TCP
+- 68 en protocole TCP
+- 1287 en protocole UDP
+- 1288 en protocole UDP
+- 2427 en protocole TCP
+- 8254 en protocole TCP
+
+Les plages :
+- De 1290 à 1339 en protocole UDP
+- De 53456 à 63546 en protocole TCP
+- De 35500 à 35599 en protocole TCP
+
+ 
+
+Mais aussi tous les autres que je n’ai pas cité :
+De 1 à 52 UDP/TCP - De 54 à 66 UDP/TCP - etc …
